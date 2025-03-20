@@ -1,102 +1,154 @@
 /* Base styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0.5em 0;
+  margin: 0;
+  padding: 0.5em 0;
 }
 
 p {
-    margin: 0;
-    padding: 0.5em 0;
+  margin: 0;
+  padding: 0.5em 0;
 }
 
 /* Container */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1em;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
 .header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
-    text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
 }
 
 /* Navigation */
 .nav {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-    padding: 0.5em 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0.5em 0;
 }
 
 .nav a {
-    text-decoration: none;
-    padding: 0.5em 1em;
+  text-decoration: none;
+  padding: 0.5em 1em;
 }
 
 .nav a:hover {
-    background-color: #555;
+  background-color: #555;
 }
-.nav li ul{
-    display: none;
 
+.nav li ul {
+  display: none;
 }
 
 /* Footer */
 .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
-.container1{
-    background: aquamarine;
-    min-height: 50rem;
-    display: flex;
-    justify-content: center;
+
+.container1 {
+  background: aquamarine;
+  min-height: 50rem;
+  display: flex;
+  justify-content: center;
 }
-.row1{
-    display: flex;
-    justify-content: center;
+
+.row1 {
+  display: flex;
+  justify-content: center;
 }
-.container1 .row .col-md-12 .row .col-md-12{
-    background: white;
+
+.container1 .row .col-md-12 .row .col-md-12 {
+  background: white;
 }
-#row1-col1-row-col{
-    background: white;
-    color: blue;
-    margin: 0.4rem;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+
+#row1-col1-row-col {
+  background: white;
+  color: blue;
+  margin: 0.4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.research{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #3882F6;
-    color: #fff;
-    height: 9rem;
+
+.research {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #3882F6;
+  color: #fff;
+  height: 9rem;
 }
+
 .vitessePerfomance {
-    background: red;
+  background: red;
 }
+
+.vitessePerfomance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+}
+.vitessePerfomance .row2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vitessePerfomance .row2 #vitessePerfomancecol1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionPoser {
+  background-color: #D1D5DB;
+  padding: 2rem;
+}
+.questionPoser .divlink {
+  min-height: 2rem;
+  background-color: #fff;
+  margin: 1rem;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.questionPoser #collapseButton {
+  color: rgb(33, 147, 175);
+  min-height: 20rem;
+  width: 70%;
+  cursor: pointer;
+}
+
+.pourqouiNousChoisir {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */
