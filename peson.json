@@ -1,0 +1,17 @@
+[
+    {
+    "name": "John Doe",
+    "description":"Expérience Exceptionnelle",
+    "content":"Je suis très satisfait de l'hébergement de NzenuHost. Mon site web a gagné en vitesse et en fiabilité depuis que je suis passée à leurs services. Leur équipe de support m'a été d'une grande aide chaque fois que j'ai eu des questions. Je recommande vivement"
+
+    },{
+    "name": "Mariam sow",
+    "description":"Hébergement de Qualité",
+    "content":"Mon site a été hébergé avec NzenuHost depuis plus d'un an et je suis très satisfaite. La qualité de leur hébergement se reflète dans la vitesse et les performances de mon site. Je recommande leur service à tous ceux qui recherchent une expérience d'hébergement de qualité"
+    },{
+        "name":"josue NYA",
+        "description":"Performance au Sommet",
+        "content":"Mon expérience avec NzenuHost en tant qu'hébergeur pour mon projet Laravel a été exceptionnelle. Leurs serveurs optimisés ont donné une nouvelle vie à mon application, avec des temps de réponse rapides et une stabilité remarquable. Je suis reconnaissant pour leur service de qualité supérieure."
+    }
+
+]
