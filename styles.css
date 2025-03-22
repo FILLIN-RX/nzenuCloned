@@ -151,4 +151,21 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.pourqouiNousChoisir #pourqouiNousChoisirRow3 {
+  text-align: center;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+.pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-lg-4 {
+  background: blue;
+  margin: 5px;
+  padding: 5px;
+}
+.pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-md-12 {
+  background-color: #D1D5DB;
+}
+.pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-sm-12 {
+  background-color: #D1D5DB;
 }/*# sourceMappingURL=styles.css.map */
