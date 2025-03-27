@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  margin: 15px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,11 +19,7 @@ p {
 
 /* Container */
 .container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1em;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
 }
 
 /* Header */
@@ -38,6 +35,9 @@ p {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
   padding: 0.5em 0;
 }
 
@@ -50,10 +50,6 @@ p {
   background-color: #555;
 }
 
-.nav li ul {
-  display: none;
-}
-
 /* Footer */
 .footer {
   background-color: #333;
@@ -63,6 +59,7 @@ p {
   position: fixed;
   width: 100%;
   bottom: 0;
+  margin: 15px;
 }
 
 .container1 {
@@ -125,6 +122,13 @@ p {
   justify-content: center;
   align-items: center;
 }
+.vitessePerfomance .row {
+  display: flex;
+  justify-content: center;
+}
+.vitessePerfomance span {
+  color: yellow;
+}
 
 .questionPoser {
   background-color: #D1D5DB;
@@ -144,6 +148,14 @@ p {
   width: 70%;
   cursor: pointer;
 }
+.questionPoser .collapseContent {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.questionPoser .collapseContent.active {
+  display: block;
+}
 
 .pourqouiNousChoisir {
   display: flex;
@@ -151,21 +163,28 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 15px;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 {
   text-align: center;
-  margin: 5px;
   display: flex;
   justify-content: center;
+  text-align: center;
+  margin: 15px;
 }
-.pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-lg-4 {
+.pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-lg-5 {
   background: blue;
   margin: 5px;
-  padding: 5px;
+  padding: 15px;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-md-12 {
   background-color: #D1D5DB;
+  padding: 5px;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-sm-12 {
-  background-color: #D1D5DB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
+  text-align: left;
 }/*# sourceMappingURL=styles.css.map */

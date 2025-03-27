@@ -1,41 +1,63 @@
-/*
-const bootstrap = require('bootstrap');
 
-// Description: This section is used to handle the collapse button in the index.html file.
+//gestion de la bar de navigation
 
-let isClicked= false;
 
-let collapseElement = new bootstrap.Collapse(document.getElementById('collapseContent'), {toggle: false});
- 
-document.getElementById("collapseButton").addEventListener("click", function() {
-    if (isClicked) {
-        collapseElement.hide();
-        console.log("Second click: Action 2 executed!");
-        this.innerText = "Click Me"; // Reset button text
-    } else {
-        collapseElement.show();
-        console.log("First click: Action 1 executed!");
-        this.innerText = "Clicked!"; // Change button text
-    }
-    isClicked = !isClicked; // Toggle state
-});
-*/
-// Ensure the DOM is fully loaded before attaching event listeners
-let isClicked = false;
-let collapseButton = document.querySelector(".divlink");
-let collapseElement = document.getElementById("collapseContent");
 
-if (collapseButton && collapseElement) {
-    collapseButton.addEventListener("click", function() {
-        if (isClicked) {
-            collapseElement.style.display = "none"; // Hide element
-            console.log("Second click: Action 2 executed!");
-        } else {
-            collapseElement.style.display = "block"; // Show element
-            console.log("First click: Action 1 executed!");
-        }
-        isClicked = !isClicked; // Toggle state
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".divlink").forEach((button, index) => {
+        button.addEventListener("click", function() {
+            let content = document.querySelectorAll(".collapse")[index];
+
+            // Toggle l'affichage du contenu
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
     });
-} else {
-    console.error("Collapse button or collapse content not found!");
+});
+
+
+
+
+//gestion des button dans la section quesion posee
+
+async function genereForfait() {
+
+    const reponse= await fetch('forfait.json')
+    forfait= await reponse.json()
+    for (let i = 0; i < forfait.length; i++) {
+        const element = forfait[i];
+        const forfaitname =document.createElement('h5')
+           forfaitname.innerText=element.name
+        const forfaitContent= document.createElement('p')
+            forfaitContent.innerText=element.content
+        const forfaitPrix=document.createElement('h5')
+            forfaitPrix.innerText=element.prix
+    
+        const divForfait = document.createElement('div')
+        divForfait.classList.add("col-sm-12", "col-md-6", "col-lg-3");
+        divForfait.style.border = "1px solid #ddd"; // Ajoute un style simple
+        divForfait.style.padding = "10px";
+        divForfait.style.margin = "10px 0";
+        // Créer la liste des attributs
+        const forfaitAtributeList = document.createElement('ul');
+        element.atribute.forEach(attr => {
+            const li = document.createElement('li');
+            li.innerText = attr;
+            forfaitAtributeList.appendChild(li);
+        });
+            divForfait.appendChild(forfaitname)
+            divForfait.appendChild(forfaitContent)
+            divForfait.appendChild(forfaitPrix)
+            divForfait.appendChild(forfaitAtributeList); // Ajout de la liste des attributs
+
+const sectionForfait=  document.querySelector('#forfait')
+        sectionForfait.appendChild(divForfait)
+   
+    }
+    
 }
+genereForfait()
