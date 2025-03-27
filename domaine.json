@@ -1,0 +1,12 @@
+[
+    {"domain": ".com", "newPrice": "11 000", "oldPrice": "13 200"},
+    {"domain": ".cm", "newPrice": "8 000", "oldPrice": "9 600"},
+    {"domain": ".org", "newPrice": "12 000", "oldPrice": "14 400"},
+    {"domain": ".shop", "newPrice": "21 000", "oldPrice": "25 200"},
+    {"domain": ".africa", "newPrice": "8 000", "oldPrice": "9 600"},
+    {"domain": ".store", "newPrice": "31 500", "oldPrice": "37 800"},
+    {"domain": ".tech", "newPrice": "34 500", "oldPrice": "41 400"},
+    {"domain": ".app", "newPrice": "13 500", "oldPrice": "16 200"},
+    {"domain": ".dev", "newPrice": "13 500", "oldPrice": "16 200"},
+    {"domain": ".company", "newPrice": "12 000", "oldPrice": "14 400"}
+]

@@ -1,0 +1,65 @@
+#domainetable {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1%;
+}
+
+td, th {
+  padding: 10px;
+  text-align: center;
+}
+
+tr:nth-child(odd) {
+  background-color: #d1d5db;
+}
+
+.old-price {
+  -webkit-text-decoration: line-through red;
+          text-decoration: line-through red;
+}
+
+#domaine {
+  margin: 10%;
+}
+
+.optionInclus {
+  margin: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+}
+.optionInclus .row {
+  display: flex;
+  justify-content: center;
+}
+.optionInclus .row .col-lg-3 {
+  background-color: #D1D5DB;
+  margin: 5px;
+  padding: 20px;
+}
+#sectionRealiser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & #Realiser{
+    color: white;
+}
+}
+#sectionResearch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  & .research{
+    display: flex;
+    align-items: center;
+    
+  }
+}
