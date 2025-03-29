@@ -69,10 +69,15 @@ p {
 }
 
 .container1 {
-  background: aquamarine;
+  color: #fff;
   min-height: 50rem;
   display: flex;
   justify-content: center;
+  background-image: url(images/nzenuhost_wallpaper_2024.webp);
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: right center;
+  font-weight: 700;
 }
 
 .row1 {
@@ -92,6 +97,7 @@ p {
 #row1-col1-row-col {
   background: white;
   color: blue;
+  font-weight: 700;
   margin: 0.4rem;
   height: 4rem;
   display: flex;
@@ -201,4 +207,13 @@ p {
 .containern{
   background-color: rgb(17, 29, 54);
   color: #fff;
+}
+.supportClient{
+  background-color:  #060642;
+  color: #fff;
+}
+.supportClient img{
+  border-radius: 400px;
+  width: 300px;
+  border: 4px solid rgb(107, 107, 194);
 }/*# sourceMappingURL=styles.css.map */
