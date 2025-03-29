@@ -79,68 +79,75 @@ genereForfait()
 
 async function person() {
     try {
-        const response = await fetch('peson.json'); // Correction du nom du fichier
+        const response = await fetch('peson.json'); 
         const persons = await response.json();
 
         const slideContainer = document.querySelector('.carousel-slide');
-        slideContainer.innerHTML = ""; // On vide le conteneur avant d'ajouter du contenu
+        slideContainer.innerHTML = ""; // Vider le conteneur avant d'ajouter les cartes
 
-        let index = 0;
+        let index = 0; // Index de la première carte visible
 
-        persons.forEach((elementperson) => {
-            // Création des éléments
-            const personName = document.createElement('h5');
-            personName.innerText = elementperson.name;
+        function renderCarousel() {
+            slideContainer.innerHTML = ""; // Effacer l'ancien affichage
 
-            const personContent = document.createElement('p');
-            personContent.innerText = elementperson.content;
+            for (let i = 0; i < 2; i++) { // Toujours afficher 2 cartes
+                let personIndex = (index + i) % persons.length; // Permet une boucle infinie
+                let elementperson = persons[personIndex];
 
-            const personDescription = document.createElement('p');
-            personDescription.innerText = elementperson.description;
+                const personName = document.createElement('h5');
+                personName.innerText = elementperson.name;
+                personName.style.fontWeight="600"
 
-            const personImage = document.createElement('img');
-            personImage.src = elementperson.image;
-            personImage.style.width = "50%";
-            personImage.style.borderRadius = "50%";
+                const personContent = document.createElement('p');
+                personContent.innerText = elementperson.content;
+                    
 
-            const divPerson = document.createElement('div');
-            divPerson.appendChild(personImage);
-            divPerson.appendChild(personName);
-            divPerson.appendChild(personDescription);
-            divPerson.appendChild(personContent);
+                const personDescription = document.createElement('p');
+                personDescription.innerText = elementperson.description;
+                personDescription.style.color="blue"
+                personDescription.style.fontWeight="600"
 
-            // Appliquer du style
-            divPerson.style.borderRadius = "10px";
-            divPerson.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-            divPerson.style.padding = "10px";
-            divPerson.style.overflow = "hidden";
-            divPerson.style.position = "relative";
-            divPerson.style.backgroundColor = "#f9f9f9";
-            divPerson.style.objectFit = "cover";
-            divPerson.style.margin = "10px";
-            divPerson.style.width = "600px"; // S'assurer que les slides ont la même taille
-            divPerson.style.flexShrink = "0"; // Empêcher le rétrécissement des slides
+                const personImage = document.createElement('img');
+                personImage.src = elementperson.image;
+                personImage.style.width = "80px";
+                personImage.style.borderRadius = "50%";
 
-            slideContainer.appendChild(divPerson);
-        });
+                const divPerson = document.createElement('div');
+                divPerson.classList.add("carousel-card"); // Ajoute une classe spécifique
+                divPerson.appendChild(personImage);
+                divPerson.appendChild(personName);
+                divPerson.appendChild(personDescription);
+                divPerson.appendChild(personContent);
+                divPerson.style.margin="10px"
+                divPerson.style.flexShrink = "0"; // Empêcher le rétrécissement des slides
+
+                slideContainer.appendChild(divPerson);
+                
+                
+                
+            }
+            
+        }
+        
+        
+        
+
+        renderCarousel(); // Affiche les premières cartes
 
         // Navigation
         const prevBtn = document.querySelector('#prev');
         const nextBtn = document.querySelector('#next');
 
-        function updateCarousel() {
-            slideContainer.style.transform = `translateX(${-index * 600}px)`;
-            slideContainer.style.transition = "transform 0.5s ease-in-out";
-        }
-
         nextBtn.addEventListener('click', () => {
-            index = (index + 1) % persons.length;
-            updateCarousel();
+            index = (index + 1) % persons.length; // Passer à la carte suivante
+            renderCarousel();
+            updateCarousel()
         });
 
         prevBtn.addEventListener('click', () => {
-            index = (index - 1 + persons.length) % persons.length;
-            updateCarousel();
+            index = (index - 1 + persons.length) % persons.length; // Revenir à la carte précédente
+            renderCarousel();
+            updateCarousel()
         });
 
     } catch (error) {
