@@ -19,8 +19,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+document.querySelectorAll('.navlink').forEach((button,index)=>{
+    button.addEventListener("click",()=>{
+        console.log('link clicked')
+        let contentnav = document.querySelectorAll('.linkContent')[index];
 
-
+        if (contentnav.style.display === "block") {
+            contentnav.style.display ='none'
+            console.log('found')
+            
+        }else{
+            contentnav.style.display = "block";
+            console.log('find')
+        }
+    })
+})
+});
 
 //gestion des button dans la section quesion posee
 

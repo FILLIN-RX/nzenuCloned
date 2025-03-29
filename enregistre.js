@@ -2,6 +2,22 @@
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".divlink").forEach((button, index) => {
+        button.addEventListener("click", function() {
+            let content = document.querySelectorAll(".collapse")[index];
+
+            // Toggle l'affichage du contenu
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+});
+
+
 async function loaddomaine() {
     const reponse= await fetch('domaine.json')
     const domaine= await reponse.json()

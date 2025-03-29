@@ -1,9 +1,19 @@
+
+
+
+body{
+  
+}
+
+
 #domainetable {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10%;
 }
+
 
 table {
   width: 100%;
@@ -58,5 +68,73 @@ tr:nth-child(odd) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+}
+.questionfrequamentPoser {
+  padding: 0 10% 0 10%;
+}
+.questionfrequamentPoser .divlink {
+  min-height: 2rem;
+  background-color: #fff;
+  margin: 1rem;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgb(186, 235, 235);
+  color: rgb(89, 89, 224);
+}
+.questionfrequamentPoser #collapseButton {
+  color: rgb(33, 147, 175);
+  min-height: 20rem;
+  width: 70%;
+  cursor: pointer;
+}
+.questionfrequamentPoser .divlink:hover{
+  background-color: rgb(146, 162, 214);
+}
+.questionfrequamentPoser .collapseContent {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.questionfrequamentPoser .collapseContent.active {
+  display: block;
+}
+#firstfootercontainer{
+  background-color: rgb(38, 72, 124);
+  color: #fff;
+}
+#firstfootercontainer a{
+  text-decoration: none;
+  color: #fff;
+}
+#firstfootercontainer a:hover{
+  text-decoration: underline;
+}
+.containern{
+  background-color: rgb(17, 29, 54);
+  color: #fff;
+}
+.optionInclusMain{
+  font-size: 20px;
+  font-weight: 700;
+  
+}
+.optionInclus .col-sm-12{
+  text-align: left;
+}
+.optionInclus .col-sm-12 span{
+  color: rgb(50, 50, 151);
+  font-weight: 700;
+}
+.containerm{
+  padding: 0 10% 0 10%;
+}
+.containern{
+  margin: 0;
+}
+.supportClient{
+  background-color: rgb(6, 30, 104); color: white;
+  padding: 0 10% 0 10%;
   
 }
