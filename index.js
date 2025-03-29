@@ -76,3 +76,76 @@ const sectionForfait=  document.querySelector('#forfait')
     
 }
 genereForfait()
+
+async function person() {
+    try {
+        const response = await fetch('peson.json'); // Correction du nom du fichier
+        const persons = await response.json();
+
+        const slideContainer = document.querySelector('.carousel-slide');
+        slideContainer.innerHTML = ""; // On vide le conteneur avant d'ajouter du contenu
+
+        let index = 0;
+
+        persons.forEach((elementperson) => {
+            // Création des éléments
+            const personName = document.createElement('h5');
+            personName.innerText = elementperson.name;
+
+            const personContent = document.createElement('p');
+            personContent.innerText = elementperson.content;
+
+            const personDescription = document.createElement('p');
+            personDescription.innerText = elementperson.description;
+
+            const personImage = document.createElement('img');
+            personImage.src = elementperson.image;
+            personImage.style.width = "50%";
+            personImage.style.borderRadius = "50%";
+
+            const divPerson = document.createElement('div');
+            divPerson.appendChild(personImage);
+            divPerson.appendChild(personName);
+            divPerson.appendChild(personDescription);
+            divPerson.appendChild(personContent);
+
+            // Appliquer du style
+            divPerson.style.borderRadius = "10px";
+            divPerson.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+            divPerson.style.padding = "10px";
+            divPerson.style.overflow = "hidden";
+            divPerson.style.position = "relative";
+            divPerson.style.backgroundColor = "#f9f9f9";
+            divPerson.style.objectFit = "cover";
+            divPerson.style.margin = "10px";
+            divPerson.style.width = "600px"; // S'assurer que les slides ont la même taille
+            divPerson.style.flexShrink = "0"; // Empêcher le rétrécissement des slides
+
+            slideContainer.appendChild(divPerson);
+        });
+
+        // Navigation
+        const prevBtn = document.querySelector('#prev');
+        const nextBtn = document.querySelector('#next');
+
+        function updateCarousel() {
+            slideContainer.style.transform = `translateX(${-index * 600}px)`;
+            slideContainer.style.transition = "transform 0.5s ease-in-out";
+        }
+
+        nextBtn.addEventListener('click', () => {
+            index = (index + 1) % persons.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            index = (index - 1 + persons.length) % persons.length;
+            updateCarousel();
+        });
+
+    } catch (error) {
+        console.error("Erreur lors du chargement des données :", error);
+    }
+}
+
+person();
