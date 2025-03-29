@@ -1,0 +1,93 @@
+
+
+
+
+
+
+main{
+    padding-top: 200px;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    color: #fff;
+  }
+  nav a{
+    color: #fff;
+  }
+  nav img{
+    color: #fff;
+  }
+  
+  /* Navigation */
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #4b4aa3;
+    width: 100%;
+    padding: 0.5em 0;
+  
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      color: rgb(19, 17, 17);
+      z-index: 1000;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    padding: 0.5em 1em;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  .nav li .linkContent{
+    cursor: pointer;
+    transition: max-height 0.3s ease-in-out;
+    background-color: #e7e4e4;
+    border-radius: 20px;
+    list-style: none;
+  
+  }
+  .navlink{
+    cursor: pointer;
+  }
+  .supportClient{
+    background-color:  #060642;
+    color: #fff;
+  }
+  .supportClient img{
+    border-radius: 400px;
+    width: 300px;
+    border: 4px solid rgb(107, 107, 194);
+  }
+  #sectionRealiser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    & #Realiser{
+      color: white;
+  }
+}
+.optionInclus {
+    margin: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }
+  .optionInclus .row {
+    display: flex;
+    justify-content: center;
+  }
+  .optionInclus .row .col-lg-5 {
+    background-color: #D1D5DB;
+    margin: 5px;
+    padding: 20px;
+  }
