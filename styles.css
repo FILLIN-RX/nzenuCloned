@@ -29,18 +29,29 @@ p {
   padding: 1em 0;
   text-align: center;
 }
+nav{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  color: #fff;
+}
+nav a{
+  color: #fff;
+}
+nav img{
+  color: #fff;
+}
 
 /* Navigation */
 .nav {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #fff;
-  position: fixed;
+  background-color: #4b4aa3;
   width: 100%;
   padding: 0.5em 0;
   display: none;
-  position: fixed;
+
     top: 0;
     left: 0;
     width: 100%;
@@ -55,15 +66,18 @@ p {
 }
 
 .nav a:hover {
-  background-color: #555;
+  text-decoration: underline;
 }
 .nav li .linkContent{
   cursor: pointer;
   transition: max-height 0.3s ease-in-out;
-  background-color: #eed7d7;
+  background-color: #e7e4e4;
   border-radius: 20px;
   list-style: none;
 
+}
+.navlink{
+  cursor: pointer;
 }
 
 /* Footer */
