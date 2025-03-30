@@ -35,7 +35,7 @@ nav{
   position: fixed;
   width: 100%;
   z-index: 1000;
-  color: #fff;
+  color: #020101;
 }
 nav a{
   color: #fff;
@@ -66,9 +66,10 @@ nav img{
   text-decoration: none;
   padding: 0.5em 1em;
 }
-.nav li{
+.nav li {
   display: block;
-  color: white;
+  color:black;
+  text-decoration: none;
 }
 
 .nav a:hover {
@@ -77,7 +78,8 @@ nav img{
 .nav li .linkContent{
   cursor: pointer;
   transition: max-height 0.3s ease-in-out;
-  background-color: #0f0a0a;
+  background-color: #f5f0f0;
+  color: black;
   border-radius: 20px;
 
 }

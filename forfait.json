@@ -14,6 +14,62 @@
 
         ]
 
+    },{
+        "name":"host bronze",
+        "content":"Pack d'hébergement mutualisé tout-en-un avec installation instantanée pour mettre en ligne votre seul et unique site web et attirer des visiteurs.",
+        "prix":"25 000 FCFA/an",
+        "atribute":[
+            "site web 1",
+            "nom de domaine gratuit",
+            "Espace disque NVMe 50 GB",
+            "adresses e-mails 50",
+            "base de données 50",
+            "ssl gratuit Let's encrypt",
+            "LVE RAM 2 GB",
+            "vCPU Core 2",
+            "Serveurs web liteSpeed",
+            "Migration Gratuite",
+            "Bande passante 150 GB",
+            "Sous domaine 20"
+        ]
+
+        
+    },{
+        "name":"host silver",
+        "content":"Pack d'hébergement mutualisé supérieur doté des dernières technologies permettant d'exécuter jusqu'à 5 sites web et de les gérer à l'aide du cPanel de référence.",
+        "prix":"35 000 FCFA/an",
+        "atribute":[
+            "site web 5",
+            "nom de domaine gratuit",
+            "Espace disque NVMe 80 GB",
+            "adresses e-mails 100",
+            "base de données 100",
+            "ssl gratuit Let's encrypt",
+            "LVE RAM 4 GB",
+            "vCPU Core 2",
+            "Serveurs web liteSpeed",
+            "Migration Gratuite",
+            "Bande passante 500 GB",
+            "Sous domaine 100"
+        ]
+    },{
+        "name":"host Gold",
+        "content":"Tirez le meilleur parti de votre pack d'hébergement partagé en hébergeant un nombre illimité de sites avec des vitesses de chargement rapides et sans temps d'arrêt.40 000 FCFA/an",
+        "prix":"40 000 FCFA/an",
+        "atribute":[
+            "site web illimité",
+            "nom de domaine gratuit",
+            "Espace disque NVMe 100 GB",
+            "adresses e-mails illimitées",
+            "base de données illimitées",
+            "ssl gratuit Let's encrypt",
+            "LVE RAM 2 GB",
+            "vCPU Core 2",
+            "Serveurs web liteSpeed",
+            "Migration Gratuite",
+            "Bande passante illimitée",
+            "Sous domaine illimité"
+        ]
     }
 
 

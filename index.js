@@ -3,11 +3,11 @@
 
 
 
-
-document.addEventListener("DOMContentLoaded", function() {
+function collapse() {
+    
     document.querySelectorAll(".divlink").forEach((button, index) => {
         button.addEventListener("click", function() {
-            let content = document.querySelectorAll(".collapse")[index];
+            let content = document.querySelector(".collapse")[index];
 
             // Toggle l'affichage du contenu
             if (content.style.display === "block") {
@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
+}
+collapse()
 
 document.addEventListener("DOMContentLoaded", function() {
 document.querySelectorAll('.navlink').forEach((button,index)=>{
