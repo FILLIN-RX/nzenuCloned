@@ -1,13 +1,10 @@
 
 //gestion de la bar de navigation
 
-
-
-function collapse() {
-    
+document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".divlink").forEach((button, index) => {
         button.addEventListener("click", function() {
-            let content = document.querySelector(".collapse")[index];
+            let content = document.querySelectorAll(".collapse")[index];
 
             // Toggle l'affichage du contenu
             if (content.style.display === "block") {
@@ -17,8 +14,8 @@ function collapse() {
             }
         });
     });
-}
-collapse()
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
 document.querySelectorAll('.navlink').forEach((button,index)=>{
@@ -52,12 +49,17 @@ async function genereForfait() {
             forfaitContent.innerText=element.content
         const forfaitPrix=document.createElement('h5')
             forfaitPrix.innerText=element.prix
+
+            const forfaitHead=document.createElement('div')
+            forfaitHead.appendChild(forfaitname)
+            forfaitHead.appendChild(forfaitContent)
+            forfaitHead.appendChild(forfaitPrix)
+            forfaitHead.style.backgroundColor= "blue"
     
         const divForfait = document.createElement('div')
-        divForfait.classList.add("col-sm-12", "col-md-6", "col-lg-3");
-        divForfait.style.border = "1px solid #ddd"; // Ajoute un style simple
-        divForfait.style.padding = "10px";
-        divForfait.style.margin = "10px 0";
+        divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3");
+        divForfait.style.border = "1px solid #ddd"; 
+        divForfait.style.margin = "10px"
         // Créer la liste des attributs
         const forfaitAtributeList = document.createElement('ul');
         element.atribute.forEach(attr => {
@@ -65,9 +67,8 @@ async function genereForfait() {
             li.innerText = attr;
             forfaitAtributeList.appendChild(li);
         });
-            divForfait.appendChild(forfaitname)
-            divForfait.appendChild(forfaitContent)
-            divForfait.appendChild(forfaitPrix)
+            
+            divForfait.appendChild(forfaitHead)
             divForfait.appendChild(forfaitAtributeList); // Ajout de la liste des attributs
 
 const sectionForfait=  document.querySelector('#forfait')

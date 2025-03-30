@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Base styles */
 body {
   font-family: Arial, sans-serif;
@@ -196,3 +197,132 @@ p {
 #ceQueLesGens {
   display: flex;
 }
+
+#forfait .col-sm-12 {
+  margin: 5px;
+  padding: 5px;
+}
+
+.forfait {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 15px;
+}
+.forfait li:nth-child(odd) {
+  background-color: #d1d5db;
+}
+.forfait li {
+  list-style-type: none;
+}
+
+.supportClient {
+  background-color: #060642;
+  color: #fff;
+}
+
+.supportClient img {
+  border-radius: 400px;
+  width: 300px;
+  border: 4px solid #6b6bc2;
+}
+
+nav {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transition: translateX(600px);
+}
+
+.carousel-card {
+  flex: 1 0 48%;
+  /* Chaque carte prend environ 50% */
+  max-width: 700px;
+  /* Empêche que ça devienne trop grand */
+  width: 50%;
+  /* Empêche que ça devienne trop petit */
+  min-height: 300px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vw;
+  /* Ajustement dynamique */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card img {
+  width: 20%;
+  /* Proportionnel au conteneur */
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+#prev {
+  left: 10px;
+  position: relative;
+}
+
+#next {
+  right: 10px;
+}
+
+.carousel button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#ceQueLesGens {
+  background-image: url(images/col-bg-two.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#ceQueLesGensCol {
+  display: flex;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=styles.css.map */

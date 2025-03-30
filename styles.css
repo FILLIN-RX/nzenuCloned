@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Base styles */
 body {
   font-family: Arial, sans-serif;
@@ -6,9 +7,7 @@ body {
   background-color: #f4f4f4;
   margin: 15px;
 }
-main{
-  padding-top: 200px;
-}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0.5em 0;
@@ -31,60 +30,29 @@ p {
   padding: 1em 0;
   text-align: center;
 }
-nav{
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  color: #020101;
-}
-nav a{
-  color: #fff;
-}
-nav img{
-  color: #fff;
-}
 
 /* Navigation */
 .nav {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #4b4aa3;
+  background-color: #fff;
+  position: fixed;
   width: 100%;
   padding: 0.5em 0;
-  display: none;
-
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    color: rgb(19, 17, 17);
-    z-index: 1000;
 }
 
 .nav a {
   text-decoration: none;
   padding: 0.5em 1em;
 }
-.nav li {
-  display: block;
-  color:black;
-  text-decoration: none;
-}
 
 .nav a:hover {
-  text-decoration: underline;
+  background-color: #555;
 }
-.nav li .linkContent{
-  cursor: pointer;
-  transition: max-height 0.3s ease-in-out;
-  background-color: #f5f0f0;
-  color: black;
-  border-radius: 20px;
 
-}
-.navlink{
-  cursor: pointer;
+.nav li ul {
+  text-decoration: none;
 }
 
 /* Footer */
@@ -100,23 +68,13 @@ nav img{
 }
 
 .container1 {
-  color: #fff;
+  background: aquamarine;
   min-height: 50rem;
   display: flex;
   justify-content: center;
-  background-image: url(images/nzenuhost_wallpaper_2024.webp);
-  background-repeat: no-repeat; 
-  background-size: cover;
-  background-position: right center;
-  font-weight: 700;
 }
 
 .row1 {
-  display: flex;
-  justify-content: center;
-  
-}
-#row1{
   display: flex;
   justify-content: center;
 }
@@ -128,7 +86,6 @@ nav img{
 #row1-col1-row-col {
   background: white;
   color: blue;
-  font-weight: 700;
   margin: 0.4rem;
   height: 4rem;
   display: flex;
@@ -190,8 +147,20 @@ nav img{
   padding: 5px;
   cursor: pointer;
 }
-
-
+.questionPoser #collapseButton {
+  color: rgb(33, 147, 175);
+  min-height: 20rem;
+  width: 70%;
+  cursor: pointer;
+}
+.questionPoser .collapseContent {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.questionPoser .collapseContent.active {
+  display: block;
+}
 
 .pourqouiNousChoisir {
   display: flex;
@@ -224,36 +193,55 @@ nav img{
   margin: 5px;
   text-align: left;
 }
-#firstfootercontainer{
-  background-color: rgb(38, 72, 124);
+
+#ceQueLesGens {
+  display: flex;
+}
+
+#forfait .col-sm-12 {
+  margin: 5px;
+  padding: 5px;
+}
+
+.forfait {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 15px;
+}
+.forfait li:nth-child(odd) {
+  background-color: #d1d5db;
+}
+.forfait li {
+  list-style-type: none;
+}
+
+.supportClient {
+  background-color: #060642;
   color: #fff;
 }
-#firstfootercontainer a{
-  text-decoration: none;
-  color: #fff;
-}
-#firstfootercontainer a:hover{
-  text-decoration: underline;
-}
-.containern{
-  background-color: rgb(17, 29, 54);
-  color: #fff;
-}
-.supportClient{
-  background-color:  #060642;
-  color: #fff;
-}
-.supportClient img{
+
+.supportClient img {
   border-radius: 400px;
   width: 300px;
   border: 4px solid rgb(107, 107, 194);
 }
+
+nav {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+
 .carousel {
   position: relative;
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
 }
+
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -270,12 +258,13 @@ nav img{
   align-items: center;
   justify-content: center;
 }
+
 .carousel-slide {
   display: flex;
   transition: transform 0.5s ease-in-out;
   transition: translateX(600px);
-  
 }
+
 .carousel-card {
   flex: 1 0 48%; /* Chaque carte prend environ 50% */
   max-width: 700px; /* Empêche que ça devienne trop grand */
@@ -294,10 +283,10 @@ nav img{
   max-width: 100px;
   height: auto;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-bottom: 10px;
 }
-
 
 .carousel-container {
   width: 100%;
@@ -316,7 +305,8 @@ nav img{
 .carousel button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-#ceQueLesGens{
+
+#ceQueLesGens {
   background-image: url(images/col-bg-two.webp);
   background-repeat: no-repeat;
   background-size: cover;
@@ -325,8 +315,10 @@ nav img{
   flex-direction: column;
   text-align: center;
 }
-#ceQueLesGensCol{
+
+#ceQueLesGensCol {
   display: flex;
   justify-content: center;
 }
+
 /*# sourceMappingURL=styles.css.map */

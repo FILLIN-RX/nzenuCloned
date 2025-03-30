@@ -1,11 +1,3 @@
-
-
-
-body{
-  
-}
-
-
 #domainetable {
   display: flex;
   flex-direction: column;
@@ -13,7 +5,6 @@ body{
   align-items: center;
   margin: 10%;
 }
-
 
 table {
   width: 100%;
@@ -32,7 +23,7 @@ tr:nth-child(odd) {
 
 .old-price {
   -webkit-text-decoration: line-through red;
-          text-decoration: line-through red;
+  text-decoration: line-through red;
 }
 
 #domaine {
@@ -46,16 +37,19 @@ tr:nth-child(odd) {
   flex-direction: column;
   text-align: center;
 }
+
 .optionInclus .row {
   display: flex;
   justify-content: center;
 }
+
 .optionInclus .row .col-lg-3 {
   background-color: #D1D5DB;
   margin: 5px;
   padding: 20px;
 }
-#sectionRealiser{
+
+#sectionRealiser {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,21 +57,22 @@ tr:nth-child(odd) {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right center;
+}
+#sectionRealiser #Realiser {
+  color: white;
+}
 
-  & #Realiser{
-    color: white;
-}
-}
 .research {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
+
 .questionfrequamentPoser {
   padding: 0 10% 0 10%;
 }
- .divlink {
+
+.divlink {
   min-height: 2rem;
   background-color: #fff;
   margin: 1rem;
@@ -87,71 +82,87 @@ tr:nth-child(odd) {
   background-color: rgb(186, 235, 235);
   color: rgb(89, 89, 224);
 }
+
 .questionfrequamentPoser #collapseButton {
   color: rgb(33, 147, 175);
   min-height: 20rem;
   width: 70%;
   cursor: pointer;
 }
- .divlink:hover{
+
+.divlink:hover {
   background-color: rgb(146, 162, 214);
 }
- .collapse {
+
+.collapse {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
+
 .questionfrequamentPoser .collapseContent.active {
   display: block;
 }
-#firstfootercontainer{
+
+#firstfootercontainer {
   background-color: rgb(38, 72, 124);
   color: #fff;
 }
-#firstfootercontainer a{
+
+#firstfootercontainer a {
   text-decoration: none;
   color: #fff;
 }
-#firstfootercontainer a:hover{
+
+#firstfootercontainer a:hover {
   text-decoration: underline;
 }
-.containern{
+
+.containern {
   background-color: rgb(17, 29, 54);
   color: #fff;
 }
-.optionInclusMain{
+
+.optionInclusMain {
   font-size: 20px;
   font-weight: 700;
-  
 }
-.optionInclus .col-sm-12{
+
+.optionInclus .col-sm-12 {
   text-align: left;
 }
-.optionInclus .col-sm-12 span{
+
+.optionInclus .col-sm-12 span {
   color: rgb(50, 50, 151);
   font-weight: 700;
 }
-.containerm{
+
+.containerm {
   padding: 0 10% 0 10%;
 }
-.containern{
+
+.containern {
   margin: 0;
 }
-.supportClient{
-  background-color: rgb(6, 30, 104); color: white;
+
+.supportClient {
+  background-color: rgb(6, 30, 104);
+  color: white;
   padding: 0 10% 0 10%;
-  
 }
-.supportClient{
-  background-color:  #060642;
+
+.supportClient {
+  background-color: #060642;
   color: #fff;
 }
-.supportClient img{
+
+.supportClient img {
   border-radius: 400px;
   width: 300px;
   border: 4px solid rgb(107, 107, 194);
 }
-#divbuttonExtension{
+
+#divbuttonExtension {
   display: flex;
   justify-content: center;
   margin-bottom: 2px;
-}
+}/*# sourceMappingURL=enregistrer.css.map */
