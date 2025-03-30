@@ -55,21 +55,25 @@ async function genereForfait() {
             forfaitHead.appendChild(forfaitContent)
             forfaitHead.appendChild(forfaitPrix)
             forfaitHead.style.backgroundColor= "blue"
+            forfaitHead.style.color="white"
+            forfaitHead.style.fontWeight="500"
     
         const divForfait = document.createElement('div')
-        divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3");
-        divForfait.style.border = "1px solid #ddd"; 
-        divForfait.style.margin = "10px"
+        divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); 
         // Créer la liste des attributs
         const forfaitAtributeList = document.createElement('ul');
+        forfaitAtributeList.style.width="100"
+        forfaitAtributeList.style.listStylePosition="inside"
         element.atribute.forEach(attr => {
             const li = document.createElement('li');
             li.innerText = attr;
             forfaitAtributeList.appendChild(li);
         });
+        const forfaitButtom=document.createElement("div")
+        forfaitButtom.appendChild(forfaitAtributeList)
             
             divForfait.appendChild(forfaitHead)
-            divForfait.appendChild(forfaitAtributeList); // Ajout de la liste des attributs
+            divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
 
 const sectionForfait=  document.querySelector('#forfait')
         sectionForfait.appendChild(divForfait)

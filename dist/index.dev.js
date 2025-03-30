@@ -62,19 +62,23 @@ function genereForfait() {
             forfaitHead.appendChild(forfaitContent);
             forfaitHead.appendChild(forfaitPrix);
             forfaitHead.style.backgroundColor = "blue";
+            forfaitHead.style.color = "white";
+            forfaitHead.style.fontWeight = "500";
             var divForfait = document.createElement('div');
-            divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3");
-            divForfait.style.border = "1px solid #ddd";
-            divForfait.style.margin = "10px"; // Créer la liste des attributs
+            divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); // Créer la liste des attributs
 
             var forfaitAtributeList = document.createElement('ul');
+            forfaitAtributeList.style.width = "100";
+            forfaitAtributeList.style.listStylePosition = "inside";
             element.atribute.forEach(function (attr) {
               var li = document.createElement('li');
               li.innerText = attr;
               forfaitAtributeList.appendChild(li);
             });
+            var forfaitButtom = document.createElement("div");
+            forfaitButtom.appendChild(forfaitAtributeList);
             divForfait.appendChild(forfaitHead);
-            divForfait.appendChild(forfaitAtributeList); // Ajout de la liste des attributs
+            divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
 
             var sectionForfait = document.querySelector('#forfait');
             sectionForfait.appendChild(divForfait);

@@ -198,12 +198,18 @@ p {
 
 }
 #forfait{
-    & .col-sm-12{
-        margin: 5px;
-        padding: 5px;
-        
+    & .col-md-12{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        & li{
+            min-height: 40px;
+            display: flex;
+
+        }
     }
 }
+
 .forfait{
     display: flex;
     flex-direction: column;
@@ -214,9 +220,12 @@ p {
     
     & li:nth-child(odd) {
         background-color: #d1d5db;
+        display: flex;
+        justify-items: center;
       }
     & li{
         list-style-type: none;
+        width: 100%;
     }
 
     

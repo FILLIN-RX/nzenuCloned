@@ -198,9 +198,14 @@ p {
   display: flex;
 }
 
-#forfait .col-sm-12 {
-  margin: 5px;
-  padding: 5px;
+#forfait .col-md-12 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#forfait .col-md-12 li {
+  min-height: 40px;
+  display: flex;
 }
 
 .forfait {
@@ -213,9 +218,12 @@ p {
 }
 .forfait li:nth-child(odd) {
   background-color: #d1d5db;
+  display: flex;
+  justify-items: center;
 }
 .forfait li {
   list-style-type: none;
+  width: 100%;
 }
 
 .supportClient {
