@@ -3,7 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10%;
+  padding: 2% 10%;
+}
+#domainetable .col-lg-6{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 table {
@@ -27,7 +34,8 @@ tr:nth-child(odd) {
 }
 
 #domaine {
-  margin: 10%;
+  padding: 2% 10%;
+  
 }
 
 .optionInclus {
@@ -53,10 +61,10 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(images/image\ \(5\).jpeg);
+  background-image: url(images/domain_registration.webp);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right center;
+  background-position: right ;
 }
 #sectionRealiser #Realiser {
   color: white;
@@ -67,12 +75,33 @@ tr:nth-child(odd) {
   flex-direction: column;
   align-items: center;
 }
+.research form{
+  width: 90%;
+}
+
+.research button{
+  background-color: aqua;
+  margin: 0;
+  border: 1px solid aqua;
+  font-weight: 500;
+  height: 30px;
+  width: 20%;
+
+}
+.sectionResearchbutton{
+  background-color: red;
+}
+
+.research input{
+  margin: 0;
+  width: 50%;
+}
 
 .questionfrequamentPoser {
   padding: 0 10% 0 10%;
 }
 
-.divlink {
+.collapse-button {
   min-height: 2rem;
   background-color: #fff;
   margin: 1rem;
@@ -94,10 +123,16 @@ tr:nth-child(odd) {
   background-color: rgb(146, 162, 214);
 }
 
-.collapse {
+.collapse-content {
+  max-height: 0;  /* Cache le contenu */
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
+
+.collapse-content.active {
+  max-height: 500px; /* Ajuste selon le contenu */
+}
+
 
 .questionfrequamentPoser .collapseContent.active {
   display: block;
@@ -165,4 +200,46 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   margin-bottom: 2px;
-}/*# sourceMappingURL=enregistrer.css.map */
+}
+#buttonactualiser{
+  background-color: aqua;
+  color: rgb(34, 34, 95);
+  border: 1px solid aqua;
+  font-weight: 500;
+}
+#buttonactualiser:hover{
+  background-color: white;
+  color: rgb(34, 34, 95);
+  border: 1px solid rgb(34, 34, 95);
+  font-weight: 500;
+}
+#buttonRecherche{
+  background-color: aqua;
+  color: rgb(34, 34, 95);
+  border: 1px solid aqua;
+  font-weight: 500;
+}
+#buttonRecherche:hover{
+  background-color: white;
+  color: rgb(34, 34, 95);
+  border: 1px solid rgb(34, 34, 95);
+  font-weight: 500;
+}
+#buttonExtension{
+  background-color: aqua;
+  color: rgb(34, 34, 95);
+  border: 1px solid aqua;
+  font-weight: 500;
+  
+}
+#buttonExtension:hover{
+  background-color: white;
+  color: rgb(34, 34, 95);
+  border: 1px solid rgb(34, 34, 95);
+  font-weight: 500;
+}
+#buttonExtensionContainer{
+  text-align: center;
+}
+
+/*# sourceMappingURL=enregistrer.css.map */

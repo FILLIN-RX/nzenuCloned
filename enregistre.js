@@ -2,20 +2,42 @@
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll(".divlink").forEach((button, index) => {
-        button.addEventListener("click", function() {
-            let content = document.querySelectorAll(".collapse")[index];
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".collapse-button");
 
-            // Toggle l'affichage du contenu
-            if (content.style.display === "block") {
-                content.style.display = "none";
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            console.log("collapse button clicked");
+
+            // Ferme tous les autres éléments
+            document.querySelectorAll(".collapse-content").forEach(content => {
+                content.classList.remove("active");
+
+                const buttonplus = content.previousElementSibling.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "+";
+            });
+
+            const content = button.nextElementSibling;
+            const isActive = content.classList.contains("active");
+
+            if (!isActive) {
+                content.classList.add("active");
+
+                // Change l'icône du bouton de cet élément
+                const buttonplus = button.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "-";
             } else {
-                content.style.display = "block";
+                // Réinitialise si l'élément est déjà ouvert
+                const buttonplus = button.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "+";
             }
         });
     });
 });
+
 
 
 async function loaddomaine() {

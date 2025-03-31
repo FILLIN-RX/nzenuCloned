@@ -1,16 +1,34 @@
 "use strict";
 
 //gestion de la bar de navigation
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".divlink").forEach(function (button, index) {
-    button.addEventListener("click", function () {
-      var content = document.querySelectorAll(".collapse")[index]; // Toggle l'affichage du contenu
 
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+/*
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".divlink").forEach((button, index) => {
+        button.addEventListener("click", function() {
+            let content = document.querySelectorAll(".collapse")[index];
+
+            // Toggle l'affichage du contenu
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+});
+*/
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".collapse-button");
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      // Ferme tous les autres éléments
+      document.querySelectorAll(".collapse-content").forEach(function (content) {
+        content.classList.remove("active");
+      }); // Récupère le contenu lié à ce bouton et l'affiche
+
+      var content = button.nextElementSibling;
+      content.classList.add("active");
     });
   });
 });

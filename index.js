@@ -1,6 +1,6 @@
 
 //gestion de la bar de navigation
-
+/*
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".divlink").forEach((button, index) => {
         button.addEventListener("click", function() {
@@ -12,6 +12,23 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 content.style.display = "block";
             }
+        });
+    });
+});
+*/
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".collapse-button");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Ferme tous les autres éléments
+            document.querySelectorAll(".collapse-content").forEach(content => {
+                content.classList.remove("active");
+            });
+
+            // Récupère le contenu lié à ce bouton et l'affiche
+            const content = button.nextElementSibling;
+            content.classList.add("active");
         });
     });
 });
