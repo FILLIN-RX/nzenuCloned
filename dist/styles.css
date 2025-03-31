@@ -333,4 +333,18 @@ nav {
   justify-content: center;
 }
 
+container1 {
+  background-image: url(images/nzenuhost_wallpaper_2024.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 50rem;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin-top: 200px;
+}
+
 /*# sourceMappingURL=styles.css.map */

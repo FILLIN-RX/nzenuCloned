@@ -5,9 +5,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  margin: 15px;
 }
-
+ma
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0.5em 0;
@@ -21,6 +20,9 @@ p {
 /* Container */
 .container {
   margin: 0;
+}
+nav{
+  margin-top: 0;
 }
 
 /* Header */
@@ -40,6 +42,7 @@ p {
   position: fixed;
   width: 100%;
   padding: 0.5em 0;
+  margin-top: 0;
 }
 
 .nav a {
@@ -53,6 +56,9 @@ p {
 
 .nav li ul {
   text-decoration: none;
+}
+main{
+  padding-top: 145px;
 }
 
 /* Footer */
@@ -68,10 +74,14 @@ p {
 }
 
 .container1 {
-  background: aquamarine;
+  background-image: url(images/nzenuhost_wallpaper_2024.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   min-height: 50rem;
   display: flex;
   justify-content: center;
+  padding: 0 10%;
 }
 
 .row1 {
@@ -99,7 +109,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #3882F6;
+  background:oklch(0.359 0.144 278.697);
   color: #fff;
   height: 9rem;
 }
@@ -138,6 +148,7 @@ p {
 .questionPoser {
   background-color: #D1D5DB;
   padding: 2rem;
+  padding: 2 10%;
 }
 .questionPoser .divlink {
   min-height: 2rem;
@@ -169,6 +180,7 @@ p {
   align-items: center;
   text-align: center;
   margin: 15px;
+  padding: 0 10%;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 {
   text-align: center;
@@ -214,12 +226,20 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 15px;
+  padding: 0 10%;
+
 }
 .forfait li:nth-child(odd) {
   background-color: #d1d5db;
   display: flex;
-  justify-items: center;
+  justify-content: start;
+  align-items: center;
+}
+.forfait li:nth-child(even) {
+  background-color: #fff;
+  display: flex;
+  justify-items:start;
+  align-items: center;
 }
 .forfait li {
   list-style-type: none;
@@ -327,6 +347,21 @@ nav {
 #ceQueLesGensCol {
   display: flex;
   justify-content: center;
+}
+@media(max-width: 768px) {
+  container1{
+    padding: 2%;
+  }
+  .forfait{
+    padding: 3%;
+  }
+  .pourqouiNousChoisir{
+    padding: 0;
+    color: #060642;
+  }
+  .questionPoser{
+    color: #060642;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
