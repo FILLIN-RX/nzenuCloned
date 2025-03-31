@@ -22,13 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
   var buttons = document.querySelectorAll(".collapse-button");
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      // Ferme tous les autres éléments
+      console.log("collapse button clicked"); // Ferme tous les autres éléments
+
       document.querySelectorAll(".collapse-content").forEach(function (content) {
         content.classList.remove("active");
-      }); // Récupère le contenu lié à ce bouton et l'affiche
-
+        var buttonplus = content.previousElementSibling.querySelector(".buttoncontentId");
+        buttonplus.innerHTML = "";
+        buttonplus.innerText = "+";
+      });
       var content = button.nextElementSibling;
-      content.classList.add("active");
+      var isActive = content.classList.contains("active");
+
+      if (!isActive) {
+        content.classList.add("active"); // Change l'icône du bouton de cet élément
+
+        var buttonplus = button.querySelector(".buttoncontentId");
+        buttonplus.innerHTML = "";
+        buttonplus.innerText = "-";
+      } else {
+        // Réinitialise si l'élément est déjà ouvert
+        var _buttonplus = button.querySelector(".buttoncontentId");
+
+        _buttonplus.innerHTML = "";
+        _buttonplus.innerText = "+";
+      }
     });
   });
 });
@@ -68,7 +85,10 @@ function genereForfait() {
           forfait = _context.sent;
 
           _loop = function _loop(i) {
-            var element = forfait[i];
+            var element = forfait[i]; //.atribute.slice(0,3);
+
+            var initialAttributes = element.atribute.slice(0, 12);
+            var fullAttributes = element.atribute;
             var forfaitname = document.createElement('h5');
             forfaitname.innerText = element.name;
             var forfaitContent = document.createElement('p');
@@ -84,21 +104,7 @@ function genereForfait() {
             forfaitHead.style.fontWeight = "500";
             forfaitHead.style.borderRadius = "10px 10px 0px 0px";
             forfaitHead.style.border = "1px solid gray";
-            var button = document.createElement('button');
-            button.innerText = "commander";
-            button.style.backgroundColor = "aqua";
-            button.style.color = "blue";
-            button.style.border = "none";
-            button.addEventListener('mouseover', function () {
-              button.style.backgroundColor = "white";
-              button.style.color = "blue";
-              button.style.border = "1px solid blue";
-            });
-            button.addEventListener('mouseout', function () {
-              button.style.backgroundColor = "aqua";
-              button.style.color = "blue";
-              button.style.border = "none";
-            });
+            var isExpanded = false;
             var divForfait = document.createElement('div');
             divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); // Créer la liste des attributs
 
@@ -107,10 +113,53 @@ function genereForfait() {
             forfaitAtributeList.style.listStylePosition = "inside";
             forfaitAtributeList.style.margin = "0";
             forfaitAtributeList.style.padding = "0";
-            element.atribute.forEach(function (attr) {
+            var button = document.createElement('button');
+            button.innerText = "commander";
+            button.style.backgroundColor = "aqua";
+            button.style.color = "blue";
+            button.style.border = "none"; // Fonction pour afficher tous les attributs
+
+            var showAllAttributes = function showAllAttributes() {
+              if (!isExpanded) {
+                fullAttributes.slice(15).forEach(function (attr) {
+                  var li = document.createElement('li');
+                  li.innerHTML = "\n                <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" role=\"img\" \n                class=\"icon w-6 h-6 text-primary-900\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\">\n                    <path fill=\"currentColor\" d=\"m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z\"></path>\n                </svg> ".concat(attr);
+                  forfaitAtributeList.appendChild(li);
+                });
+                isExpanded = true;
+              }
+            }; // Fonction pour masquer les attributs et revenir aux 3 initiaux
+
+
+            var hideExtraAttributes = function hideExtraAttributes() {
+              if (isExpanded) {
+                while (forfaitAtributeList.children.length > 12) {
+                  forfaitAtributeList.removeChild(forfaitAtributeList.lastChild);
+                }
+
+                isExpanded = false;
+              }
+            }; // Ajouter les 3 attributs de base
+
+
+            initialAttributes.forEach(function (attr) {
               var li = document.createElement('li');
-              li.innerHTML = "\n                <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" role=\"img\" class=\"icon w-6 h-6 text-primary-900\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\">\n                    <path fill=\"currentColor\" d=\"m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z\"></path>\n                </svg>\n                ".concat(attr, "\n            ");
+              li.innerHTML = "\n        <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" role=\"img\" \n        class=\"icon w-6 h-6 text-primary-900\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\">\n            <path fill=\"currentColor\" d=\"m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z\"></path>\n        </svg> ".concat(attr);
               forfaitAtributeList.appendChild(li);
+            }); // Gérer l'affichage des attributs au survol du forfait
+
+            button.addEventListener('mouseenter', showAllAttributes); // S'assurer que les attributs restent affichés tant que la souris est dessus
+
+            forfaitAtributeList.addEventListener('mouseenter', function () {
+              isExpanded = true; // Empêche la liste de se cacher
+            }); // Masquer les attributs quand la souris quitte complètement la section
+
+            button.addEventListener('mouseleave', function (event) {
+              setTimeout(function () {
+                if (!button.matches(':hover') && !forfaitAtributeList.matches(':hover')) {
+                  hideExtraAttributes();
+                }
+              }, 200); // Petit délai pour éviter les disparitions instantanées
             });
             var forfaitButtom = document.createElement("div");
             forfaitButtom.appendChild(forfaitAtributeList);

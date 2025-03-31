@@ -147,31 +147,44 @@ main{
   color: yellow;
 }
 
-.questionPoser {
-  background-color: #D1D5DB;
-  padding: 2rem;
-  padding: 2 10%;
+.questionfrequamentPoser {
+  padding: 0 10% 0 10%;
 }
-.questionPoser .divlink {
+
+.collapse-button {
   min-height: 2rem;
   background-color: #fff;
   margin: 1rem;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
+  background-color: rgb(186, 235, 235);
+  color: rgb(89, 89, 224);
 }
-.questionPoser #collapseButton {
+
+.questionfrequamentPoser #collapseButton {
   color: rgb(33, 147, 175);
   min-height: 20rem;
   width: 70%;
   cursor: pointer;
 }
-.questionPoser .collapseContent {
-  display: none;
+
+.divlink:hover {
+  background-color: rgb(146, 162, 214);
+}
+
+.collapse-content {
+  max-height: 0;  /* Cache le contenu */
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
-.questionPoser .collapseContent.active {
+
+.collapse-content.active {
+  max-height: 500px; /* Ajuste selon le contenu */
+}
+
+
+.questionfrequamentPoser .collapseContent.active {
   display: block;
 }
 

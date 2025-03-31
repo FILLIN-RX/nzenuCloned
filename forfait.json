@@ -8,7 +8,16 @@
             "adresses e-mails 5", "base de données 20",
             "ssl gratuit Let's encrypt","LVE RAM 2 GB",
             "vCPU Core 2","Serveurs web liteSpeed","Bande passante 10 GB",
-            "Sous domaine 5","Compte FTP5"
+            "Sous domaine 5","Compte FTP5",
+            "Protection contre les logiciels malveillants",
+            "Panneau de contrôle cPanel",
+            "processus d'entrée 30",
+            "Multiples versions de PHP",
+            "Cache Opcode PHP",
+            "WP CLI inodes",
+            "illimités",
+            "CageFS Security avec CloudLinux",
+            "Imunify360 Gratuit"
 
 
 
@@ -30,8 +39,20 @@
             "Serveurs web liteSpeed",
             "Migration Gratuite",
             "Bande passante 150 GB",
-            "Sous domaine 20"
-        ]
+            "Sous domaine 20",
+            "Compte FTP20",
+            "Protection contre les logiciels malveillants",
+            "Panneau de contrôle cPanel",
+            "Sauvegardes quotidiennes",
+            "Multiples versions de PHP",
+            "Cache Opcode PHP",
+            "WP CLI",
+            "inodes",
+            "illimités",
+            "CageFS Security avec CloudLinux",
+            "Imunify360",
+            "Gratuit"
+                    ]
 
         
     },{
@@ -50,11 +71,23 @@
             "Serveurs web liteSpeed",
             "Migration Gratuite",
             "Bande passante 500 GB",
-            "Sous domaine 100"
+            "Sous domaine 100",
+            "Compte FTP100",
+            "Protection contre les logiciels malveillants",
+            "Panneau de contrôle cPanel",
+            "Sauvegardes quotidiennes",
+            "Accès au terminal & SSH",
+            "Multiples versions de PHP",
+            "Cache Opcode PHP",
+            "WP CLI",
+            "inodes illimités",
+            "CageFS Security avec CloudLinux",
+            "Imunify360 Gratuit"
+
         ]
     },{
         "name":"host Gold",
-        "content":"Tirez le meilleur parti de votre pack d'hébergement partagé en hébergeant un nombre illimité de sites avec des vitesses de chargement rapides et sans temps d'arrêt.40 000 FCFA/an",
+        "content":"Tirez le meilleur parti de votre pack d'hébergement partagé en hébergeant un nombre illimité de sites avec des vitesses de chargement rapides et sans temps d'arrêt.",
         "prix":"40 000 FCFA/an",
         "atribute":[
             "site web illimité",
@@ -68,7 +101,18 @@
             "Serveurs web liteSpeed",
             "Migration Gratuite",
             "Bande passante illimitée",
-            "Sous domaine illimité"
+            "Sous domaine illimité",
+            "Compte FTP illimités",
+            "Protection contre les logiciels malveillants",
+            "Panneau de contrôle cPanel",
+            "Sauvegardes quotidiennes",
+            "Accès au terminal & SSH",
+            "Multiples versions de PHP",
+            "Cache Opcode PHP",
+            "WP CLI",
+            "inodes illimités",
+            "CageFS Security avec CloudLinux",
+            "Imunify360 Gratuit"
         ]
     }
 

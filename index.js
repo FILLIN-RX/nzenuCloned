@@ -16,22 +16,43 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 */
+
 document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".collapse-button");
 
     buttons.forEach(button => {
         button.addEventListener("click", () => {
+            console.log("collapse button clicked");
+
             // Ferme tous les autres éléments
             document.querySelectorAll(".collapse-content").forEach(content => {
                 content.classList.remove("active");
+
+                const buttonplus = content.previousElementSibling.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "+";
             });
 
-            // Récupère le contenu lié à ce bouton et l'affiche
             const content = button.nextElementSibling;
-            content.classList.add("active");
+            const isActive = content.classList.contains("active");
+
+            if (!isActive) {
+                content.classList.add("active");
+
+                // Change l'icône du bouton de cet élément
+                const buttonplus = button.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "-";
+            } else {
+                // Réinitialise si l'élément est déjà ouvert
+                const buttonplus = button.querySelector(".buttoncontentId");
+                buttonplus.innerHTML = "";
+                buttonplus.innerText = "+";
+            }
         });
     });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -59,7 +80,9 @@ async function genereForfait() {
     const reponse= await fetch('forfait.json')
     forfait= await reponse.json()
     for (let i = 0; i < forfait.length; i++) {
-        const element = forfait[i];
+        const element = forfait[i]//.atribute.slice(0,3);
+        const initialAttributes= element.atribute.slice(0,12)
+        const fullAttributes =element.atribute
         const forfaitname =document.createElement('h5')
            forfaitname.innerText=element.name
         const forfaitContent= document.createElement('p')
@@ -76,22 +99,8 @@ async function genereForfait() {
             forfaitHead.style.fontWeight="500"
             forfaitHead.style.borderRadius="10px 10px 0px 0px"
             forfaitHead.style.border="1px solid gray"
-
-            const button=document.createElement('button')
-            button.innerText="commander"
-            button.style.backgroundColor="aqua"
-            button.style.color="blue"
-            button.style.border="none"  
-            button.addEventListener('mouseover',()=>{
-                button.style.backgroundColor="white"
-                button.style.color="blue"
-                button.style.border= "1px solid blue"
-            })
-            button.addEventListener('mouseout',()=>{
-                button.style.backgroundColor="aqua"
-                button.style.color="blue"
-                button.style.border="none"
-            })
+            let isExpanded=false
+            
     
         const divForfait = document.createElement('div')
         divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); 
@@ -101,18 +110,68 @@ async function genereForfait() {
         forfaitAtributeList.style.listStylePosition="inside"
         forfaitAtributeList.style.margin="0"
         forfaitAtributeList.style.padding="0"
-        element.atribute.forEach(attr => {
+        
+        const button=document.createElement('button')
+            button.innerText="commander"
+            button.style.backgroundColor="aqua"
+            button.style.color="blue"
+            button.style.border="none"  
+            
+        
+// Fonction pour afficher tous les attributs
+const showAllAttributes = () => {
+    if (!isExpanded) {
+        fullAttributes.slice(15).forEach(attr => {
             const li = document.createElement('li');
-        
             li.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="icon w-6 h-6 text-primary-900" width="1em" height="1em" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" 
+                class="icon w-6 h-6 text-primary-900" width="1em" height="1em" viewBox="0 0 24 24">
                     <path fill="currentColor" d="m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z"></path>
-                </svg>
-                ${attr}
-            `;
-        
+                </svg> ${attr}`;
             forfaitAtributeList.appendChild(li);
         });
+        isExpanded = true;
+    }
+};
+
+// Fonction pour masquer les attributs et revenir aux 3 initiaux
+const hideExtraAttributes = () => {
+    if (isExpanded) {
+        while (forfaitAtributeList.children.length > 12) {
+            forfaitAtributeList.removeChild(forfaitAtributeList.lastChild);
+        }
+        isExpanded = false;
+    }
+};
+
+// Ajouter les 3 attributs de base
+initialAttributes.forEach(attr => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" 
+        class="icon w-6 h-6 text-primary-900" width="1em" height="1em" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z"></path>
+        </svg> ${attr}`;
+    forfaitAtributeList.appendChild(li);
+});
+
+
+// Gérer l'affichage des attributs au survol du forfait
+button.addEventListener('mouseenter', showAllAttributes);
+
+// S'assurer que les attributs restent affichés tant que la souris est dessus
+forfaitAtributeList.addEventListener('mouseenter', () => {
+    isExpanded = true; // Empêche la liste de se cacher
+});
+
+// Masquer les attributs quand la souris quitte complètement la section
+button.addEventListener('mouseleave', (event) => {
+    setTimeout(() => {
+        if (!button.matches(':hover') && !forfaitAtributeList.matches(':hover')) {
+            hideExtraAttributes();
+        }
+    }, 200); // Petit délai pour éviter les disparitions instantanées
+});
         
         const forfaitButtom=document.createElement("div")
         forfaitButtom.appendChild(forfaitAtributeList)
