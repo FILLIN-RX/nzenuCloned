@@ -1,49 +1,6 @@
 
 
 
-
-
-
-
-/* Navigation */
-.nav {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: #fff;
-    position: fixed;
-    width: 100%;
-    padding: 0.5em 0;
-    position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      color: rgb(19, 17, 17);
-      z-index: 1000;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    padding: 0.5em 1em;
-  }
-  
-  .nav a:hover {
-    background-color: #555;
-  }
-  .nav li .linkContent{
-    cursor: pointer;
-    transition: max-height 0.3s ease-in-out;
-    background-color: #eed7d7;
-    border-radius: 20px;
-    list-style: none;
-  
-  }
-  .navlink{
-    cursor: pointer;
-  }
-
-
 .supportClient{
     background-color:  #060642;
     color: #fff;
@@ -63,13 +20,7 @@
   }
 }
 #PourquoiNousChoisirMigration{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
     background-color: #D1D5DB;
-    padding: 20px;
     
 }
 #PourquoiNousChoisirMigration .row .col-lg-3{
@@ -77,6 +28,11 @@
     margin: 5px;
     padding: 10px;
     text-align: left;
+}
+#PourquoiNousChoisirMigration .row{
+  display: flex;
+  justify-content: center;
+
 }
 #PourquoiNousChoisirMigration .row .col-lg-5{
     background-color: #fff;
@@ -100,4 +56,24 @@
 #PourquoiNousChoisirMigration .row{
     display: flex;
     justify-content: center;
+}
+/* Mobile */
+@media (max-width: 576px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/* Tablette */
+@media (max-width: 992px) {
+  #PourquoiNousChoisirMigration{
+    padding: 2% 10%;
+  }
+}
+
+/* Ordinateur */
+@media (min-width: 993px) {
+  body {
+    background-color: lightcoral;
+  }
 }

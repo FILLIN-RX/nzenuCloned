@@ -113,6 +113,7 @@ async function genereForfait() {
         
         const button=document.createElement('button')
             button.innerText="commander"
+            button.style.margin="5px"
             button.style.backgroundColor="aqua"
             button.style.color="blue"
             button.style.border="none"  

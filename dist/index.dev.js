@@ -115,6 +115,7 @@ function genereForfait() {
             forfaitAtributeList.style.padding = "0";
             var button = document.createElement('button');
             button.innerText = "commander";
+            button.style.margin = "5px";
             button.style.backgroundColor = "aqua";
             button.style.color = "blue";
             button.style.border = "none"; // Fonction pour afficher tous les attributs
