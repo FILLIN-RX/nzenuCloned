@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2% 10%;
 }
 #domainetable .col-lg-6{
   display: flex;
@@ -13,14 +12,14 @@
 
 }
 
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1%;
 }
 
 td, th {
-  padding: 10px;
+  
   text-align: center;
 }
 
@@ -31,15 +30,12 @@ tr:nth-child(odd) {
 .old-price {
   -webkit-text-decoration: line-through red;
   text-decoration: line-through red;
-}
 
-#domaine {
   padding: 2% 10%;
   
 }
 
 .optionInclus {
-  margin: 10%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -53,7 +49,7 @@ tr:nth-child(odd) {
 
 .optionInclus .row .col-lg-3 {
   background-color: #D1D5DB;
-  margin: 5px;
+  margin: 5px ;
   padding: 20px;
 }
 
@@ -61,12 +57,12 @@ tr:nth-child(odd) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(images/domain_registration.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right ;
-}
-#sectionRealiser #Realiser {
+  background-color: rgb(19, 3, 39);
+  min-height: 30rem;
+  font-weight: bold;
   color: white;
 }
 
@@ -76,7 +72,7 @@ tr:nth-child(odd) {
   align-items: center;
 }
 .research form{
-  width: 90%;
+  width: 100%;
 }
 
 .research button{
@@ -98,13 +94,13 @@ tr:nth-child(odd) {
 }
 
 .questionfrequamentPoser {
-  padding: 0 10% 0 10%;
+  font-weight: bold;
 }
 
 .collapse-button {
   min-height: 2rem;
   background-color: #fff;
-  margin: 1rem;
+  margin: 1rem 0;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
@@ -241,5 +237,152 @@ tr:nth-child(odd) {
 #buttonExtensionContainer{
   text-align: center;
 }
+#firstfootercontainer img{
+  width: 100px;
+  border-radius: 10px;
+}
+/* Mobile */
+@media (max-width: 576px) {
+  #firstfootercontainer{
+    padding: 0% 1%;
+  }
+  .supportClient{
+    padding: 0% 1%;
+  }
+  .cequeLesGens{
+    padding: 0% 1%;
+    
+  }
+  .carousel-slide{
+    width: 90%;
+  }
+  .carousel-slide .carousel-card{
+    width: 100%;
+  }
+  .pourqouiNousChoisir{
+    padding: 0% 1%;
+  }
+  .vitessePerfomance{
+    padding: 0% 1%;
+  }
+  .forfait{
+    padding: 0% 1%;
+  }
+  .research{
+    padding: 0% 1%;
+  }
+  .container1{
+    padding: 0% 1%;
+  }
+  .questionfrequamentPoser{
+    padding: 0% 1%;
+
+  }
+  .optionInclus{
+    padding: 0% 1%;
+
+  }
+  #sectionRealiser{
+    padding: 0% 1%;
+
+  }
+  #domain{
+  padding: 0% 1%;
+  }
+}
+
+/* Tablette */
+@media (max-width: 992px) {
+  #firstfootercontainer{
+    padding: 1% 5%;
+  }
+  .supportClient{
+    padding: 1% 5%;
+  }
+  .cequeLesGens{
+    padding: 1% 5%;
+    
+  }
+  .pourqouiNousChoisir{
+    padding: 1% 5%;
+  }
+  .vitessePerfomance{
+    padding: 1% 5%;
+  }
+  .forfait{
+    padding: 1% 5%;
+  }
+  .research{
+    padding: 1% 5%;
+  }
+  .container1{
+    padding: 1% 5%;
+  }
+  .questionfrequamentPoser{
+    padding: 1% 5%;
+
+  }
+  .optionInclus{
+    padding: 1% 5%;
+
+  }
+  #sectionRealiser{
+    padding: 1% 5%;
+
+  }
+  #domain{
+  padding: 1% 5%;
+  }
+}
+
+/* Ordinateur */
+@media (min-width: 993px) {
+  #firstfootercontainer{
+    padding: 2% 10%;
+  }
+  .supportClient{
+    padding: 2% 10%;
+  }
+  .cequeLesGens{
+    padding: 2% 10%;
+    
+  }
+  .carousel-slide{
+    padding: 2% 10%;
+
+  }
+  .pourqouiNousChoisir{
+    padding: 2% 10%;
+  }
+  .vitessePerfomance{
+    padding: 2% 10%;
+  }
+  .forfait{
+    padding: 2% 10%;
+  }
+  .research{
+    padding: 2% 10%;
+  }
+  .container1{
+    padding: 2% 10%;
+  }
+  .questionfrequamentPoser{
+    padding: 2% 10%;
+
+  }
+  .optionInclus{
+    padding: 2% 10%;
+
+  }
+  #sectionRealiser{
+    padding: 2% 10%;
+
+  }
+  #domain{
+  padding: 2% 10%;
+  }
+
+}
+
 
 /*# sourceMappingURL=enregistrer.css.map */

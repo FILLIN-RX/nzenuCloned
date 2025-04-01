@@ -96,6 +96,9 @@ main{
   min-height: 50rem;
   display: flex;
   justify-content: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .row1 {
@@ -115,6 +118,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
   cursor: pointer;
 }
 
