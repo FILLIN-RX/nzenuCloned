@@ -195,6 +195,38 @@ const divsectionForfait=  document.querySelector('#forfait')
 }
 genereForfait()
 
+
+async function loaddomaine() {
+    const reponse= await fetch('domaine.json')
+    const domaine= await reponse.json()
+    const table = document.createElement('table');
+    const domainediv = document.getElementById('domaine')
+    for (let i = 0; i < domaine.length; i++) {
+
+        const domainelement = domaine[i];
+        const row =document.createElement('tr')
+        const domainetd = document.createElement('td')
+        domainetd.innerText=domainelement.domain
+        const newpricetd = document.createElement('td')
+        newpricetd.innerText=domainelement.newPrice
+        const  oldpriceTd = document.createElement('td')
+        oldpriceTd.innerText=domainelement.oldPrice
+        oldpriceTd.classList.add('old-price')
+        table.classList.add('col-md-12', 'col-lg-12','col-sm-12')
+        table.style.margin='0px';
+        row.appendChild(domainetd)
+        row.appendChild(newpricetd)
+        row.appendChild(oldpriceTd)
+        table.appendChild(row);
+        domainediv.appendChild(table)
+
+        
+    }
+
+    
+}
+loaddomaine()
+
 async function person() {
     try {
         const response = await fetch('peson.json'); 
@@ -274,4 +306,57 @@ async function person() {
 }
 
 person();
+
+
+
+//transferde page
+
+// Sélection des éléments
+const displayDiv = document.getElementById("main");
+const EnregistrerButton = document.querySelector(".Enregistrer");
+
+// Ajouter un événement au bouton pour charger le contenu
+EnregistrerButton.addEventListener("click", (event) => {
+    console.log("button clicked");
+    event.preventDefault();
+
+    // Utiliser fetch pour récupérer le contenu de l'autre page
+    fetch("Enregistrerdomaine.html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur de chargement de la page");
+            }
+            return response.text(); // Récupérer le texte de la page
+        })
+        .then(html => {
+            // Créer un élément temporaire pour extraire la section
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            // Sélectionner la section à partir de l'autre page
+            const sectionToLoad = tempDiv.querySelector("#sectionToLoad");
+
+            if (sectionToLoad) {
+                // Remplacer le contenu du main avec la section récupérée
+                displayDiv.innerHTML = "";
+                displayDiv.appendChild(sectionToLoad);
+
+                // Charger dynamiquement le script associé après l'insertion
+                loadScript("enregistre.js");
+            } else {
+                console.log("Section non trouvée sur l'autre page");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur:", error);
+        });
+});
+
+// Fonction pour charger un script JS dynamiquement
+function loadScript(url) {
+    const script = document.createElement("script");
+    script.src = url;
+    script.onload = () => console.log("Script chargé :", url);
+    document.body.appendChild(script);
+}
 

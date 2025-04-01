@@ -190,13 +190,61 @@ function genereForfait() {
 
 genereForfait();
 
-function person() {
-  var renderCarousel, response, persons, slideContainer, index, prevBtn, nextBtn;
-  return regeneratorRuntime.async(function person$(_context2) {
+function loaddomaine() {
+  var reponse, domaine, table, domainediv, i, domainelement, row, domainetd, newpricetd, oldpriceTd;
+  return regeneratorRuntime.async(function loaddomaine$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          _context2.prev = 0;
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(fetch('domaine.json'));
+
+        case 2:
+          reponse = _context2.sent;
+          _context2.next = 5;
+          return regeneratorRuntime.awrap(reponse.json());
+
+        case 5:
+          domaine = _context2.sent;
+          table = document.createElement('table');
+          domainediv = document.getElementById('domaine');
+
+          for (i = 0; i < domaine.length; i++) {
+            domainelement = domaine[i];
+            row = document.createElement('tr');
+            domainetd = document.createElement('td');
+            domainetd.innerText = domainelement.domain;
+            newpricetd = document.createElement('td');
+            newpricetd.innerText = domainelement.newPrice;
+            oldpriceTd = document.createElement('td');
+            oldpriceTd.innerText = domainelement.oldPrice;
+            oldpriceTd.classList.add('old-price');
+            table.classList.add('col-md-12', 'col-lg-12', 'col-sm-12');
+            table.style.margin = '0px';
+            row.appendChild(domainetd);
+            row.appendChild(newpricetd);
+            row.appendChild(oldpriceTd);
+            table.appendChild(row);
+            domainediv.appendChild(table);
+          }
+
+        case 9:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+}
+
+loaddomaine();
+
+function person() {
+  var renderCarousel, response, persons, slideContainer, index, prevBtn, nextBtn;
+  return regeneratorRuntime.async(function person$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
 
           // Index de la première carte visible
           renderCarousel = function renderCarousel() {
@@ -234,16 +282,16 @@ function person() {
             }
           };
 
-          _context2.next = 4;
+          _context3.next = 4;
           return regeneratorRuntime.awrap(fetch('peson.json'));
 
         case 4:
-          response = _context2.sent;
-          _context2.next = 7;
+          response = _context3.sent;
+          _context3.next = 7;
           return regeneratorRuntime.awrap(response.json());
 
         case 7:
-          persons = _context2.sent;
+          persons = _context3.sent;
           slideContainer = document.querySelector('.carousel-slide');
           slideContainer.innerHTML = ""; // Vider le conteneur avant d'ajouter les cartes
 
@@ -265,20 +313,66 @@ function person() {
             renderCarousel();
             updateCarousel();
           });
-          _context2.next = 21;
+          _context3.next = 21;
           break;
 
         case 18:
-          _context2.prev = 18;
-          _context2.t0 = _context2["catch"](0);
-          console.error("Erreur lors du chargement des données :", _context2.t0);
+          _context3.prev = 18;
+          _context3.t0 = _context3["catch"](0);
+          console.error("Erreur lors du chargement des données :", _context3.t0);
 
         case 21:
         case "end":
-          return _context2.stop();
+          return _context3.stop();
       }
     }
   }, null, null, [[0, 18]]);
 }
 
-person();
+person(); //transferde page
+// Sélection des éléments
+
+var displayDiv = document.getElementById("main");
+var EnregistrerButton = document.querySelector(".Enregistrer"); // Ajouter un événement au bouton pour charger le contenu
+
+EnregistrerButton.addEventListener("click", function (event) {
+  console.log("button clicked");
+  event.preventDefault(); // Utiliser fetch pour récupérer le contenu de l'autre page
+
+  fetch("Enregistrerdomaine.html").then(function (response) {
+    if (!response.ok) {
+      throw new Error("Erreur de chargement de la page");
+    }
+
+    return response.text(); // Récupérer le texte de la page
+  }).then(function (html) {
+    // Créer un élément temporaire pour extraire la section
+    var tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html; // Sélectionner la section à partir de l'autre page
+
+    var sectionToLoad = tempDiv.querySelector("#sectionToLoad");
+
+    if (sectionToLoad) {
+      // Remplacer le contenu du main avec la section récupérée
+      displayDiv.innerHTML = "";
+      displayDiv.appendChild(sectionToLoad); // Charger dynamiquement le script associé après l'insertion
+
+      loadScript("enregistre.js");
+    } else {
+      console.log("Section non trouvée sur l'autre page");
+    }
+  })["catch"](function (error) {
+    console.error("Erreur:", error);
+  });
+}); // Fonction pour charger un script JS dynamiquement
+
+function loadScript(url) {
+  var script = document.createElement("script");
+  script.src = url;
+
+  script.onload = function () {
+    return console.log("Script chargé :", url);
+  };
+
+  document.body.appendChild(script);
+}
