@@ -260,10 +260,11 @@ function person() {
               personName.style.fontWeight = "600";
               var personContent = document.createElement('p');
               personContent.innerText = elementperson.content;
+              personContent.style.fontWeight = "bold";
               var personDescription = document.createElement('p');
               personDescription.innerText = elementperson.description;
               personDescription.style.color = "blue";
-              personDescription.style.fontWeight = "600";
+              personDescription.style.fontWeight = "700";
               var personImage = document.createElement('img');
               personImage.src = elementperson.image;
               personImage.style.width = "80px";

@@ -68,15 +68,24 @@ main{
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 1em 0;
   position: fixed;
   width: 100%;
   bottom: 0;
-  margin: 15px;
+
 }
 #firstfootercontainer img{
-  width: 200px;
+  width: 100px;
   border-radius: 10px;
+}
+#firstfootercontainer{
+  background-color: oklch(0.546 0.245 262.881);
+  color: white;
+  font-weight: 500;
+}
+#firstfootercontainer a{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .container1 {
@@ -87,7 +96,6 @@ main{
   min-height: 50rem;
   display: flex;
   justify-content: center;
-  padding: 0 10%;
 }
 
 .row1 {
@@ -128,7 +136,6 @@ main{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em;
 }
 .vitessePerfomance .row2 {
   display: flex;
@@ -151,14 +158,24 @@ main{
   color: yellow;
 }
 
-.questionfrequamentPoser {
-  padding: 0 10% 0 10%;
+.questionfrequamentPoserSection {
+
+  background-color: #d1d5db;
+  font-weight: bold;
+  
+}
+.questionfrequamentPoser .row .col-md-12{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+   font-weight: bold; 
+   font-size:25px;
 }
 
 .collapse-button {
   min-height: 2rem;
   background-color: #fff;
-  margin: 1rem;
+  margin: 1rem 0;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
@@ -198,15 +215,12 @@ main{
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 15px;
-  padding: 0 10%;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 {
   text-align: center;
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 15px;
 }
 .pourqouiNousChoisir #pourqouiNousChoisirRow3 .col-lg-5 {
   background: blue;
@@ -245,7 +259,6 @@ main{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 10%;
 
 }
 .forfait li:nth-child(odd) {
@@ -367,35 +380,115 @@ nav {
   display: flex;
   justify-content: center;
 }
-@media(max-width: 768px) {
-  container1{
-    padding: 2%;
+
+/* Mobile */
+@media (max-width: 576px) {
+  #firstfootercontainer{
+    padding: 0% 1%;
   }
-  .forfait{
-    padding: 3%;
-  }
-  .pourqouiNousChoisir{
-    padding: 0;
-    color: #060642;
-  }
-  #questionPoser{
-    color: #060642;
-    padding: 0;
+  .supportClient{
+    padding: 0% 1%;
   }
   .cequeLesGens{
-    padding: 0;
+    padding: 0% 1%;
+    
   }
-  .nav{
-    flex-shrink: shrink;
-  
-    align-items: center;
-    padding: 2%;
+  .carousel-slide{
+    width: 90%;
   }
-  nav{
-    flex-direction: column;
-    align-items: center;
-    padding: 2%;
+  .carousel-slide .carousel-card{
+    width: 100%;
+  }
+  .pourqouiNousChoisir{
+    padding: 0% 1%;
+  }
+  .vitessePerfomance{
+    padding: 0% 1%;
+  }
+  .forfait{
+    padding: 0% 1%;
+  }
+  .research{
+    padding: 0% 1%;
+  }
+  .container1{
+    padding: 0% 1%;
+  }
+  .questionfrequamentPoserSection{
+    padding: 0% 1%;
+
   }
 }
+
+/* Tablette */
+@media (max-width: 992px) {
+  #firstfootercontainer{
+    padding: 1% 5%;
+  }
+  .supportClient{
+    padding: 1% 5%;
+  }
+  .cequeLesGens{
+    padding: 1% 5%;
+    
+  }
+  .pourqouiNousChoisir{
+    padding: 1% 5%;
+  }
+  .vitessePerfomance{
+    padding: 1% 5%;
+  }
+  .forfait{
+    padding: 1% 5%;
+  }
+  .research{
+    padding: 1% 5%;
+  }
+  .container1{
+    padding: 1% 5%;
+  }
+  .questionfrequamentPoserSection{
+    padding: 1% 5%;
+
+  }
+}
+
+/* Ordinateur */
+@media (min-width: 993px) {
+  #firstfootercontainer{
+    padding: 2% 10%;
+  }
+  .supportClient{
+    padding: 2% 10%;
+  }
+  .cequeLesGens{
+    padding: 2% 10%;
+    
+  }
+  .carousel-slide{
+    padding: 2% 10%;
+
+  }
+  .pourqouiNousChoisir{
+    padding: 2% 10%;
+  }
+  .vitessePerfomance{
+    padding: 2% 10%;
+  }
+  .forfait{
+    padding: 2% 10%;
+  }
+  .research{
+    padding: 2% 10%;
+  }
+  .container1{
+    padding: 2% 10%;
+  }
+  .questionfrequamentPoserSection{
+    padding: 2% 10%;
+
+  }
+}
+
 
 /*# sourceMappingURL=styles.css.map */

@@ -250,12 +250,13 @@ async function person() {
 
                 const personContent = document.createElement('p');
                 personContent.innerText = elementperson.content;
+                personContent.style.fontWeight="bold"
                     
 
                 const personDescription = document.createElement('p');
                 personDescription.innerText = elementperson.description;
                 personDescription.style.color="blue"
-                personDescription.style.fontWeight="600"
+                personDescription.style.fontWeight="700"
 
                 const personImage = document.createElement('img');
                 personImage.src = elementperson.image;
