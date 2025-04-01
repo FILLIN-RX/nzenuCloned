@@ -3,13 +3,39 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1%;
 }
 #domainetable .col-lg-6{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
+}
+#domainetable2{
+  display: flex;
+   justify-content: space-between;
+    margin: 10px 0;
+     padding: 0px;
+
+}
+#domainetable2 .col-lg-5{
+  text-align: start;
+   display: flex;
+    justify-content: flex-start;
+    padding: 0px;
+
+}
+#domainetable2 .col-md-12{
+  text-align: start;
+   display: flex; 
+   justify-content: flex-end;
+    padding: 0px;
+
+}
+#domain h5{
+  font-weight: 700;
 }
 
 
@@ -25,6 +51,7 @@ td, th {
 
 tr:nth-child(odd) {
   background-color: #d1d5db;
+  width: 100%;
 }
 
 .old-price {
@@ -47,7 +74,7 @@ tr:nth-child(odd) {
   justify-content: center;
 }
 
-.optionInclus .row .col-lg-3 {
+.optionInclus .row .col-lg-4 {
   background-color: #D1D5DB;
   margin: 5px ;
   padding: 20px;

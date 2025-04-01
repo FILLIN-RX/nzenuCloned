@@ -74,11 +74,13 @@ nav{
   .optionInclus .row {
     display: flex;
     justify-content: center;
+
   }
   .optionInclus .row .col-lg-3 {
     background-color: #D1D5DB;
     margin: 5px;
     padding: 20px;
+    text-align: left;
   }
   #sectionRealiser{
     display: flex;
