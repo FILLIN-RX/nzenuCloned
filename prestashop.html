@@ -66,118 +66,273 @@
             </ul>
         </div>
 </nav>
-<main>
-    <section id="sectionRealiser"  style="background-color: rgb(51, 25, 85);min-height: 25rem;">
-        <div class="container" id="Realiser">
-            <div class="row">
-                <div class="col">
-                    <h4>Créez un site web professionnel avec notre hébergement PrestaShop</h4>
-                    <p>Choisissez notre hébergement PrestaShop pour bénéficier d’outils performants pour créer une boutique en ligne personnalisée et adaptée à vos besoins. Avec notre hébergement PrestaShop, vous pouvez vendre en ligne en toute sécurité et simplicité.</p>
-                </div>
-            </div>
-            <div class="row">
+    <main id="sectionToLoad" >
+        <script>
+            //gestion des button dans la section quesion posee
+    
+    async function genereForfait() {
+    
+    const reponse= await fetch('forfait.json')
+    forfait= await reponse.json()
+    for (let i = 0; i < forfait.length; i++) {
+        const element = forfait[i]//.atribute.slice(0,3);
+        const initialAttributes= element.atribute.slice(0,12)
+        const fullAttributes =element.atribute
+        const forfaitname =document.createElement('h5')
+           forfaitname.innerText=element.name
+        const forfaitContent= document.createElement('p')
+            forfaitContent.innerText=element.content
+        const forfaitPrix=document.createElement('h5')
+            forfaitPrix.innerText=element.prix
+    
+            const forfaitHead=document.createElement('div')
+            forfaitHead.appendChild(forfaitname)
+            forfaitHead.appendChild(forfaitContent)
+            forfaitHead.appendChild(forfaitPrix)
+            forfaitHead.style.backgroundColor= "oklch(0.257 0.09 281.288)"
+            forfaitHead.style.color="white"
+            forfaitHead.style.fontWeight="500"
+            forfaitHead.style.borderRadius="10px 10px 0px 0px"
+            forfaitHead.style.border="1px solid gray"
+            let isExpanded=false
+            
+    
+        const divForfait = document.createElement('div')
+        divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); 
+        // Créer la liste des attributs
+        const forfaitAtributeList = document.createElement('ul');
+        forfaitAtributeList.style.width="100"
+        forfaitAtributeList.style.listStylePosition="inside"
+        forfaitAtributeList.style.margin="0"
+        forfaitAtributeList.style.padding="0"
+        
+        const button=document.createElement('button')
+            button.innerText="commander"
+            button.style.backgroundColor="aqua"
+            button.style.color="blue"
+            button.style.border="none"  
+            
+        
+    // Fonction pour afficher tous les attributs
+    const showAllAttributes = () => {
+    if (!isExpanded) {
+        fullAttributes.slice(15).forEach(attr => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" 
+                class="icon w-6 h-6 text-primary-900" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z"></path>
+                </svg> ${attr}`;
+            forfaitAtributeList.appendChild(li);
+        });
+        isExpanded = true;
+    }
+    };
+    
+    // Fonction pour masquer les attributs et revenir aux 3 initiaux
+    const hideExtraAttributes = () => {
+    if (isExpanded) {
+        while (forfaitAtributeList.children.length > 12) {
+            forfaitAtributeList.removeChild(forfaitAtributeList.lastChild);
+        }
+        isExpanded = false;
+    }
+    };
+    
+    // Ajouter les 3 attributs de base
+    initialAttributes.forEach(attr => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" 
+        class="icon w-6 h-6 text-primary-900" width="1em" height="1em" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z"></path>
+        </svg> ${attr}`;
+    forfaitAtributeList.appendChild(li);
+    });
+    
+    
+    // Gérer l'affichage des attributs au survol du forfait
+    button.addEventListener('mouseenter', showAllAttributes);
+    
+    // S'assurer que les attributs restent affichés tant que la souris est dessus
+    forfaitAtributeList.addEventListener('mouseenter', () => {
+    isExpanded = true; // Empêche la liste de se cacher
+    });
+    
+    // Masquer les attributs quand la souris quitte complètement la section
+    button.addEventListener('mouseleave', (event) => {
+    setTimeout(() => {
+        if (!button.matches(':hover') && !forfaitAtributeList.matches(':hover')) {
+            hideExtraAttributes();
+        }
+    }, 200); // Petit délai pour éviter les disparitions instantanées
+    });
+        
+        const forfaitButtom=document.createElement("div")
+        forfaitButtom.appendChild(forfaitAtributeList)
+        forfaitButtom.appendChild(button)
+        forfaitButtom.style.borderRadius="0px 0px 10px 10px"
+        forfaitButtom.style.border="1px solid gray"
+            
+            divForfait.appendChild(forfaitHead)
+            divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
+            divForfait.style.borderRadius="10px"
+            
+    
+    
+    const divsectionForfait=  document.querySelector('#forfait')
+        divsectionForfait.appendChild(divForfait)
+        const sectionForfait= document.querySelector('.forfait')
+        sectionForfait.style.backgroundColor="#d1d5db"
+    
+    }
+    
+    }
+    genereForfait()
+    
+    
+    async function loaddomaine() {
+        const reponse= await fetch('domaine.json')
+        const domaine= await reponse.json()
+        const table = document.createElement('table');
+        const domainediv = document.getElementById('domaine')
+        for (let i = 0; i < domaine.length; i++) {
+    
+            const domainelement = domaine[i];
+            const row =document.createElement('tr')
+            const domainetd = document.createElement('td')
+            domainetd.innerText=domainelement.domain
+            const newpricetd = document.createElement('td')
+            newpricetd.innerText=domainelement.newPrice
+            const  oldpriceTd = document.createElement('td')
+            oldpriceTd.innerText=domainelement.oldPrice
+            oldpriceTd.classList.add('old-price')
+            table.classList.add('col-md-12', 'col-lg-12','col-sm-12')
+            table.style.margin='0px';
+            row.appendChild(domainetd)
+            row.appendChild(newpricetd)
+            row.appendChild(oldpriceTd)
+            table.appendChild(row);
+            domainediv.appendChild(table)
+    
+            
+        }
+    
+        
+    }
+    loaddomaine()
+    </script>
+        <section id="sectionRealiser"  style="background-color: rgb(51, 25, 85);min-height: 25rem;">
+            <div class="container" id="Realiser">
+                <div class="row">
                     <div class="col">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-4">
-                                <p>Support d'experts 24/7</p>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-4">
-                                <p>Garantie de disponibilité: 99.99%</p>
+                        <h4>Créez un site web professionnel avec notre hébergement PrestaShop</h4>
+                        <p>Choisissez notre hébergement PrestaShop pour bénéficier d’outils performants pour créer une boutique en ligne personnalisée et adaptée à vos besoins. Avec notre hébergement PrestaShop, vous pouvez vendre en ligne en toute sécurité et simplicité.</p>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-4">
+                                    <p>Support d'experts 24/7</p>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-4">
+                                    <p>Garantie de disponibilité: 99.99%</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                </div>
+                
             </div>
+        </section>
+        <section class="optionInclus">
+            <p class="optionInclusMain">Pourquoi Choisir Notre Hébergement PrestaShop</p> 
+            <div class="row">
+            <div class="col-sm-12 col-lg-3 col-md-12" >
+                <div class="div">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 21q-.825 0-1.412-.587T13 19v-4q0-.825.588-1.412T15 13h4q.825 0 1.413.588T21 15v4q0 .825-.587 1.413T19 21zm0-10q-.825 0-1.412-.587T13 9V5q0-.825.588-1.412T15 3h4q.825 0 1.413.588T21 5v4q0 .825-.587 1.413T19 11zM5 11q-.825 0-1.412-.587T3 9V5q0-.825.588-1.412T5 3h4q.825 0 1.413.588T11 5v4q0 .825-.587 1.413T9 11zm0 10q-.825 0-1.412-.587T3 19v-4q0-.825.588-1.412T5 13h4q.825 0 1.413.588T11 15v4q0 .825-.587 1.413T9 21z"></path></svg>
+                    <span>Performance Exceptionnelle</span>
+
+
+                </div>
+                
+                <p>Maximisez la vitesse de chargement de votre boutique en ligne grâce à notre infrastructure de pointe, assurant une expérience utilisateur fluide et réactive.
+                </p>
+            </div>
+            <div class="col-sm-12 col-lg-3 col-md-12">
+                <div class="col">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 496 512"><path fill="currentColor" d="M248 43.4C130.6 43.4 35.4 138.6 35.4 256S130.6 468.6 248 468.6S460.6 373.4 460.6 256S365.4 43.4 248 43.4m-97.4 132.9c0-53.7 43.7-97.4 97.4-97.4s97.4 43.7 97.4 97.4v26.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-26.6c0-82.1-124-82.1-124 0v26.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-26.6zM389.7 380c0 9.7-8 17.7-17.7 17.7H124c-9.7 0-17.7-8-17.7-17.7V238.3c0-9.7 8-17.7 17.7-17.7h248c9.7 0 17.7 8 17.7 17.7zm-248-137.3v132.9c0 2.5-1.9 4.4-4.4 4.4h-8.9c-2.5 0-4.4-1.9-4.4-4.4V242.7c0-2.5 1.9-4.4 4.4-4.4h8.9c2.5 0 4.4 1.9 4.4 4.4m141.7 48.7c0 13-7.2 24.4-17.7 30.4v31.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-31.6c-10.5-6.1-17.7-17.4-17.7-30.4c0-19.7 15.8-35.4 35.4-35.4s35.5 15.8 35.5 35.4M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8m0 478.3C121 486.3 17.7 383 17.7 256S121 25.7 248 25.7S478.3 129 478.3 256S375 486.3 248 486.3"></path></svg>
+
+                    <span>Sécurité Renforcée</span>
+
+
+                </div>
+                
+                <p>Votre tranquillité d'esprit est primordiale. Profitez de mesures de sécurité avancées et de certificats SSL pour protéger vos données et garantir la confiance de vos clients.</p>
+            </div>
+            <div class="col-sm-12 col-lg-3 col-md-12">
+                <div class="col">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.5h2v3h-2z"></path><path fill="currentColor" d="M20.998 14H3.002A2 2 0 0 0 1 16.002v5.996A2 2 0 0 0 3.002 24h17.996A2 2 0 0 0 23 21.998v-5.996A2 2 0 0 0 20.998 14M8 20.5A1.473 1.473 0 0 1 6.5 22H3v-6h3.5A1.473 1.473 0 0 1 8 17.5Zm6.5 1.5h-1.2l-2.55-3.5V22H9.5v-6h1.25l2.5 3.5V16h1.25Zm6.5-4.48h-3.5v.74H20a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1h-4v-1.5h3.51v-.74H17a1 1 0 0 1-1-1V17a1 1 0 0 1 1-1h4ZM4.26 12A8.2 8.2 0 0 1 4 10a8.2 8.2 0 0 1 .26-2h3.38a17 17 0 0 0-.14 2a17 17 0 0 0 .14 2h2.02a15 15 0 0 1-.16-2a15 15 0 0 1 .16-2h4.68a15 15 0 0 1 .16 2a15 15 0 0 1-.16 2h2.02a17 17 0 0 0 .14-2a17 17 0 0 0-.14-2h3.38a8.2 8.2 0 0 1 .26 2a8.2 8.2 0 0 1-.26 2h2.059A10 10 0 1 0 2.2 12Zm14.66-6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 6M12 2.04A14.1 14.1 0 0 1 13.91 6h-3.82A14.1 14.1 0 0 1 12 2.04m-2.59.4A15.7 15.7 0 0 0 8.03 6H5.08a8 8 0 0 1 4.33-3.56"></path></svg>
+
+                    <span>Support Expert
+                    </span>
+                </div>
+                
+                <p>Notre équipe de spécialistes PrestaShop est là pour vous guider à chaque étape. Bénéficiez d'un support technique avisé pour l'installation, la configuration et la maintenance de votre boutique en ligne.
+                </p>
+            </div>
+            <div class="col-sm-12 col-lg-3 col-md-12">
+                <div class="col">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"></path><path fill="currentColor" d="M11 2a5 5 0 1 0 0 10a5 5 0 0 0 0-10M8 7a3 3 0 1 1 6 0a3 3 0 0 1-6 0m2.337 8.021a1 1 0 0 0-.127-1.996c-2.21.14-4.195.858-5.651 1.813c-.728.478-1.348 1.031-1.796 1.63C2.32 17.057 2 17.755 2 18.5c0 1.535 1.278 2.346 2.495 2.763c1.28.439 2.99.638 4.832.707a1 1 0 0 0 .075-1.998c-1.791-.068-3.263-.26-4.258-.6c-.932-.32-1.11-.635-1.139-.81L4 18.5c0-.168.079-.454.363-.834c.279-.372.712-.774 1.293-1.156c1.161-.761 2.812-1.37 4.68-1.489ZM17 13.89c1.406 0 2.632.632 3.49 1.39a5.3 5.3 0 0 1 1.057 1.259c.252.427.453.94.453 1.462c0 .523-.2 1.035-.453 1.462a5.3 5.3 0 0 1-1.057 1.26c-.858.757-2.084 1.39-3.49 1.39s-2.632-.633-3.49-1.39a5.3 5.3 0 0 1-1.057-1.26C12.2 19.035 12 18.522 12 18s.2-1.035.453-1.462a5.3 5.3 0 0 1 1.057-1.26c.858-.757 2.084-1.39 3.49-1.39Zm0 2c-.803 0-1.577.368-2.167.889a3.3 3.3 0 0 0-.657.775a1.5 1.5 0 0 0-.155.339l-.02.087v.042l.02.087c.023.077.068.19.155.34c.144.243.366.517.657.774c.59.52 1.364.89 2.167.89s1.577-.37 2.167-.89a3.3 3.3 0 0 0 .657-.775c.087-.148.132-.262.155-.339l.02-.087L20 18l-.008-.058a1.4 1.4 0 0 0-.168-.39a3.3 3.3 0 0 0-.657-.774c-.59-.52-1.364-.89-2.167-.89Zm.087 1.115a.667.667 0 0 0 .91.91l.003.086a1 1 0 1 1-.913-.996"></path></g></svg>
+
+                    <span>Mises à Jour Simplifiées</span>
+
+                    
+                </div>
+                
+                <p>Restez à jour avec les dernières fonctionnalités de PrestaShop sans souci. Notre hébergement facilite les mises à jour pour une compatibilité et une sécurité constantes.</p>
+            </div>
+            <div class="col-sm-12 col-lg-3 col-md-12">
+                <div class="col">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11 .5L13.5 3h-12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h11a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H.5L3 13.5"></path></svg>
+
+                    <span>Personnalisation Optimale</span>
+
+
+                </div>
             
+                <p>Profitez d'un accès complet aux paramètres du serveur, vous permettant de personnaliser l'environnement pour répondre précisément aux besoins de votre boutique.</p>
+            </div>
+            <div class="col-sm-12 col-lg-3 col-md-12">
+                <div class="col">
+                    <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 512 512"><path d="M442 107v141L229.2 451.7c8 8 20.8 12.3 28.8 12.3s22.8-3.7 31.4-12.3L480 272V144l-38-37z" fill="currentColor"></path><path d="M384 48H224L44.3 235.6c-8 8-12 17.8-12.3 28.4-.3 11.3 3.7 23.3 12.3 31.9l123.8 123.6c8 8 20.8 12.5 28.8 12.5s22.7-3.9 31.3-12.5L416 240V80l-32-32zm-30.7 102.7c-21.7 6.1-41.3-10-41.3-30.7 0-17.7 14.3-32 32-32 20.7 0 36.8 19.6 30.7 41.3-2.9 10.3-11.1 18.5-21.4 21.4z" fill="currentColor"></path></svg>
+
+                    <span>Fiabilité Éprouvée
+                    </span>
+
+                </div>
+                
+                <p>Rejoignez des milliers de propriétaires de boutiques en ligne satisfaits qui ont choisi notre hébergement PrestaShop pour sa performance, sa sécurité et son support de qualité.</p>
+            </div>
         </div>
-    </section>
-<section class="optionInclus">
-    <p class="optionInclusMain">Pourquoi Choisir Notre Hébergement PrestaShop</p> 
-    <div class="row">
-    <div class="col-sm-12 col-lg-3 col-md-12" >
-        <div class="div">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 21q-.825 0-1.412-.587T13 19v-4q0-.825.588-1.412T15 13h4q.825 0 1.413.588T21 15v4q0 .825-.587 1.413T19 21zm0-10q-.825 0-1.412-.587T13 9V5q0-.825.588-1.412T15 3h4q.825 0 1.413.588T21 5v4q0 .825-.587 1.413T19 11zM5 11q-.825 0-1.412-.587T3 9V5q0-.825.588-1.412T5 3h4q.825 0 1.413.588T11 5v4q0 .825-.587 1.413T9 11zm0 10q-.825 0-1.412-.587T3 19v-4q0-.825.588-1.412T5 13h4q.825 0 1.413.588T11 15v4q0 .825-.587 1.413T9 21z"></path></svg>
-            <span>Performance Exceptionnelle</span>
 
+        </section>
+        <section>
+            <div class="forfait">
+                <div class="row">
+                    <h4>Prêt à Faire Décoller Votre Boutique PrestaShop ?</h4>
+                    <p>Rejoignez des milliers de propriétaires de boutiques en ligne qui ont choisi notre hébergement web optimisé pour PrestaShop. Faites confiance à notre expertise pour garantir que votre boutique en ligne bénéficie de performances exceptionnelles, d'une sécurité solide et d'un support fiable. Lancez-vous dès aujourd'hui et commencez à offrir une expérience d'achat hors pair à vos clients.</p>
+                </div>
+                <div class="row" id="forfait">
+                    <div class="col-sm-12 col-md-12 col-lg-3"></div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
+                </div>
+            </div>
+        </section>
 
-        </div>
-        
-        <p>Maximisez la vitesse de chargement de votre boutique en ligne grâce à notre infrastructure de pointe, assurant une expérience utilisateur fluide et réactive.
-        </p>
-    </div>
-    <div class="col-sm-12 col-lg-3 col-md-12">
-        <div class="col">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 496 512"><path fill="currentColor" d="M248 43.4C130.6 43.4 35.4 138.6 35.4 256S130.6 468.6 248 468.6S460.6 373.4 460.6 256S365.4 43.4 248 43.4m-97.4 132.9c0-53.7 43.7-97.4 97.4-97.4s97.4 43.7 97.4 97.4v26.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-26.6c0-82.1-124-82.1-124 0v26.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-26.6zM389.7 380c0 9.7-8 17.7-17.7 17.7H124c-9.7 0-17.7-8-17.7-17.7V238.3c0-9.7 8-17.7 17.7-17.7h248c9.7 0 17.7 8 17.7 17.7zm-248-137.3v132.9c0 2.5-1.9 4.4-4.4 4.4h-8.9c-2.5 0-4.4-1.9-4.4-4.4V242.7c0-2.5 1.9-4.4 4.4-4.4h8.9c2.5 0 4.4 1.9 4.4 4.4m141.7 48.7c0 13-7.2 24.4-17.7 30.4v31.6c0 5-3.9 8.9-8.9 8.9h-17.7c-5 0-8.9-3.9-8.9-8.9v-31.6c-10.5-6.1-17.7-17.4-17.7-30.4c0-19.7 15.8-35.4 35.4-35.4s35.5 15.8 35.5 35.4M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8m0 478.3C121 486.3 17.7 383 17.7 256S121 25.7 248 25.7S478.3 129 478.3 256S375 486.3 248 486.3"></path></svg>
-
-            <span>Sécurité Renforcée</span>
-
-
-        </div>
-        
-        <p>Votre tranquillité d'esprit est primordiale. Profitez de mesures de sécurité avancées et de certificats SSL pour protéger vos données et garantir la confiance de vos clients.</p>
-    </div>
-    <div class="col-sm-12 col-lg-3 col-md-12">
-        <div class="col">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.5h2v3h-2z"></path><path fill="currentColor" d="M20.998 14H3.002A2 2 0 0 0 1 16.002v5.996A2 2 0 0 0 3.002 24h17.996A2 2 0 0 0 23 21.998v-5.996A2 2 0 0 0 20.998 14M8 20.5A1.473 1.473 0 0 1 6.5 22H3v-6h3.5A1.473 1.473 0 0 1 8 17.5Zm6.5 1.5h-1.2l-2.55-3.5V22H9.5v-6h1.25l2.5 3.5V16h1.25Zm6.5-4.48h-3.5v.74H20a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1h-4v-1.5h3.51v-.74H17a1 1 0 0 1-1-1V17a1 1 0 0 1 1-1h4ZM4.26 12A8.2 8.2 0 0 1 4 10a8.2 8.2 0 0 1 .26-2h3.38a17 17 0 0 0-.14 2a17 17 0 0 0 .14 2h2.02a15 15 0 0 1-.16-2a15 15 0 0 1 .16-2h4.68a15 15 0 0 1 .16 2a15 15 0 0 1-.16 2h2.02a17 17 0 0 0 .14-2a17 17 0 0 0-.14-2h3.38a8.2 8.2 0 0 1 .26 2a8.2 8.2 0 0 1-.26 2h2.059A10 10 0 1 0 2.2 12Zm14.66-6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 6M12 2.04A14.1 14.1 0 0 1 13.91 6h-3.82A14.1 14.1 0 0 1 12 2.04m-2.59.4A15.7 15.7 0 0 0 8.03 6H5.08a8 8 0 0 1 4.33-3.56"></path></svg>
-
-            <span>Support Expert
-            </span>
-        </div>
-        
-        <p>Notre équipe de spécialistes PrestaShop est là pour vous guider à chaque étape. Bénéficiez d'un support technique avisé pour l'installation, la configuration et la maintenance de votre boutique en ligne.
-        </p>
-    </div>
-    <div class="col-sm-12 col-lg-3 col-md-12">
-        <div class="col">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"></path><path fill="currentColor" d="M11 2a5 5 0 1 0 0 10a5 5 0 0 0 0-10M8 7a3 3 0 1 1 6 0a3 3 0 0 1-6 0m2.337 8.021a1 1 0 0 0-.127-1.996c-2.21.14-4.195.858-5.651 1.813c-.728.478-1.348 1.031-1.796 1.63C2.32 17.057 2 17.755 2 18.5c0 1.535 1.278 2.346 2.495 2.763c1.28.439 2.99.638 4.832.707a1 1 0 0 0 .075-1.998c-1.791-.068-3.263-.26-4.258-.6c-.932-.32-1.11-.635-1.139-.81L4 18.5c0-.168.079-.454.363-.834c.279-.372.712-.774 1.293-1.156c1.161-.761 2.812-1.37 4.68-1.489ZM17 13.89c1.406 0 2.632.632 3.49 1.39a5.3 5.3 0 0 1 1.057 1.259c.252.427.453.94.453 1.462c0 .523-.2 1.035-.453 1.462a5.3 5.3 0 0 1-1.057 1.26c-.858.757-2.084 1.39-3.49 1.39s-2.632-.633-3.49-1.39a5.3 5.3 0 0 1-1.057-1.26C12.2 19.035 12 18.522 12 18s.2-1.035.453-1.462a5.3 5.3 0 0 1 1.057-1.26c.858-.757 2.084-1.39 3.49-1.39Zm0 2c-.803 0-1.577.368-2.167.889a3.3 3.3 0 0 0-.657.775a1.5 1.5 0 0 0-.155.339l-.02.087v.042l.02.087c.023.077.068.19.155.34c.144.243.366.517.657.774c.59.52 1.364.89 2.167.89s1.577-.37 2.167-.89a3.3 3.3 0 0 0 .657-.775c.087-.148.132-.262.155-.339l.02-.087L20 18l-.008-.058a1.4 1.4 0 0 0-.168-.39a3.3 3.3 0 0 0-.657-.774c-.59-.52-1.364-.89-2.167-.89Zm.087 1.115a.667.667 0 0 0 .91.91l.003.086a1 1 0 1 1-.913-.996"></path></g></svg>
-
-            <span>Mises à Jour Simplifiées</span>
-
-            
-        </div>
-        
-        <p>Restez à jour avec les dernières fonctionnalités de PrestaShop sans souci. Notre hébergement facilite les mises à jour pour une compatibilité et une sécurité constantes.</p>
-    </div>
-    <div class="col-sm-12 col-lg-3 col-md-12">
-        <div class="col">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11 .5L13.5 3h-12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h11a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H.5L3 13.5"></path></svg>
-
-            <span>Personnalisation Optimale</span>
-
-
-        </div>
-       
-        <p>Profitez d'un accès complet aux paramètres du serveur, vous permettant de personnaliser l'environnement pour répondre précisément aux besoins de votre boutique.</p>
-    </div>
-    <div class="col-sm-12 col-lg-3 col-md-12">
-        <div class="col">
-            <svg data-v-c3ad5561="" data-v-3f8e8bf9="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon w-5 h-5" width="1em" height="1em" viewBox="0 0 512 512"><path d="M442 107v141L229.2 451.7c8 8 20.8 12.3 28.8 12.3s22.8-3.7 31.4-12.3L480 272V144l-38-37z" fill="currentColor"></path><path d="M384 48H224L44.3 235.6c-8 8-12 17.8-12.3 28.4-.3 11.3 3.7 23.3 12.3 31.9l123.8 123.6c8 8 20.8 12.5 28.8 12.5s22.7-3.9 31.3-12.5L416 240V80l-32-32zm-30.7 102.7c-21.7 6.1-41.3-10-41.3-30.7 0-17.7 14.3-32 32-32 20.7 0 36.8 19.6 30.7 41.3-2.9 10.3-11.1 18.5-21.4 21.4z" fill="currentColor"></path></svg>
-
-            <span>Fiabilité Éprouvée
-            </span>
-
-        </div>
-        
-        <p>Rejoignez des milliers de propriétaires de boutiques en ligne satisfaits qui ont choisi notre hébergement PrestaShop pour sa performance, sa sécurité et son support de qualité.</p>
-    </div>
-</div>
-
-</section>
-<section>
-    <div class="forfait">
-        <div class="row">
-            <h4>Prêt à Faire Décoller Votre Boutique PrestaShop ?</h4>
-            <p>Rejoignez des milliers de propriétaires de boutiques en ligne qui ont choisi notre hébergement web optimisé pour PrestaShop. Faites confiance à notre expertise pour garantir que votre boutique en ligne bénéficie de performances exceptionnelles, d'une sécurité solide et d'un support fiable. Lancez-vous dès aujourd'hui et commencez à offrir une expérience d'achat hors pair à vos clients.</p>
-        </div>
-        <div class="row" id="forfait">
-            <div class="col-sm-12 col-md-12 col-lg-3"></div>
-            <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
-            <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
-            <div class="col-sm-12 col-md-12 col-lg-3">yo</div>
-        </div>
-    </div>
-</section>
-
-
+    </main>    
 <section class="supportClient" >
     <div class="row">
         <div class="col-md-12 col-lg-3 col-sm-12">
@@ -278,7 +433,7 @@
     </div>
 
 </footer>
-</main>
+
 <script src="index.js"></script
     
 </body>

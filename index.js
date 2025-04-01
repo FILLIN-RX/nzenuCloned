@@ -313,15 +313,19 @@ person();
 
 // Sélection des éléments
 const displayDiv = document.getElementById("main");
-const EnregistrerButton = document.querySelector(".Enregistrer");
+const EnregistrerButton = document.querySelectorAll(".loadPage");
 
 // Ajouter un événement au bouton pour charger le contenu
-EnregistrerButton.addEventListener("click", (event) => {
+EnregistrerButton.forEach(button => {
+    button.addEventListener("click", (event) => {
     console.log("button clicked");
     event.preventDefault();
 
     // Utiliser fetch pour récupérer le contenu de l'autre page
-    fetch("Enregistrerdomaine.html")
+    const pageUrl = button.getAttribute("data-page")
+    const scriptUrl = button.getAttribute("data-script");
+    console.log(pageUrl);
+    fetch(pageUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Erreur de chargement de la page");
@@ -342,7 +346,7 @@ EnregistrerButton.addEventListener("click", (event) => {
                 displayDiv.appendChild(sectionToLoad);
 
                 // Charger dynamiquement le script associé après l'insertion
-                loadScript("enregistre.js");
+                
             } else {
                 console.log("Section non trouvée sur l'autre page");
             }
@@ -352,11 +356,17 @@ EnregistrerButton.addEventListener("click", (event) => {
         });
 });
 
+})
+
 // Fonction pour charger un script JS dynamiquement
 function loadScript(url) {
+    if (url) {
+        
+    
     const script = document.createElement("script");
     script.src = url;
     script.onload = () => console.log("Script chargé :", url);
     document.body.appendChild(script);
+}
 }
 

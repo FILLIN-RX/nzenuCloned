@@ -333,46 +333,51 @@ person(); //transferde page
 // Sélection des éléments
 
 var displayDiv = document.getElementById("main");
-var EnregistrerButton = document.querySelector(".Enregistrer"); // Ajouter un événement au bouton pour charger le contenu
+var EnregistrerButton = document.querySelectorAll(".loadPage"); // Ajouter un événement au bouton pour charger le contenu
 
-EnregistrerButton.addEventListener("click", function (event) {
-  console.log("button clicked");
-  event.preventDefault(); // Utiliser fetch pour récupérer le contenu de l'autre page
+EnregistrerButton.forEach(function (button) {
+  button.addEventListener("click", function (event) {
+    console.log("button clicked");
+    event.preventDefault(); // Utiliser fetch pour récupérer le contenu de l'autre page
 
-  fetch("Enregistrerdomaine.html").then(function (response) {
-    if (!response.ok) {
-      throw new Error("Erreur de chargement de la page");
-    }
+    var pageUrl = button.getAttribute("data-page");
+    var scriptUrl = button.getAttribute("data-script");
+    console.log(pageUrl);
+    fetch(pageUrl).then(function (response) {
+      if (!response.ok) {
+        throw new Error("Erreur de chargement de la page");
+      }
 
-    return response.text(); // Récupérer le texte de la page
-  }).then(function (html) {
-    // Créer un élément temporaire pour extraire la section
-    var tempDiv = document.createElement("div");
-    tempDiv.innerHTML = html; // Sélectionner la section à partir de l'autre page
+      return response.text(); // Récupérer le texte de la page
+    }).then(function (html) {
+      // Créer un élément temporaire pour extraire la section
+      var tempDiv = document.createElement("div");
+      tempDiv.innerHTML = html; // Sélectionner la section à partir de l'autre page
 
-    var sectionToLoad = tempDiv.querySelector("#sectionToLoad");
+      var sectionToLoad = tempDiv.querySelector("#sectionToLoad");
 
-    if (sectionToLoad) {
-      // Remplacer le contenu du main avec la section récupérée
-      displayDiv.innerHTML = "";
-      displayDiv.appendChild(sectionToLoad); // Charger dynamiquement le script associé après l'insertion
-
-      loadScript("enregistre.js");
-    } else {
-      console.log("Section non trouvée sur l'autre page");
-    }
-  })["catch"](function (error) {
-    console.error("Erreur:", error);
+      if (sectionToLoad) {
+        // Remplacer le contenu du main avec la section récupérée
+        displayDiv.innerHTML = "";
+        displayDiv.appendChild(sectionToLoad); // Charger dynamiquement le script associé après l'insertion
+      } else {
+        console.log("Section non trouvée sur l'autre page");
+      }
+    })["catch"](function (error) {
+      console.error("Erreur:", error);
+    });
   });
 }); // Fonction pour charger un script JS dynamiquement
 
 function loadScript(url) {
-  var script = document.createElement("script");
-  script.src = url;
+  if (url) {
+    var script = document.createElement("script");
+    script.src = url;
 
-  script.onload = function () {
-    return console.log("Script chargé :", url);
-  };
+    script.onload = function () {
+      return console.log("Script chargé :", url);
+    };
 
-  document.body.appendChild(script);
+    document.body.appendChild(script);
+  }
 }
