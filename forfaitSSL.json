@@ -1,0 +1,62 @@
+[
+    {
+        "name":"Host S Iron",
+        "description":"Protéger 1 site web",
+        "prix":"10 000 FCFA/an",
+        "attribute": [
+            "Nombre de site sécurisé: 1",
+            "Cryptage 2048 bits",
+            "Améliore le référencement sur Google",
+            "DV (Domain Validation)",
+            "EV (Extended Validation)",
+            "Usage Professionnel",
+            "Compatibilité avec 99,3 % des navigateurs"
+        
+        ]
+        
+        
+    },{
+        "name":"host s bronze",
+        "description":"Protéger plusieurs sites web",
+        "prix":"30 000 FCFA/an",
+        "attribute": [
+            "Nombre de site sécurisé: 3",
+            "Cryptage 2048 bits",
+            "Améliore le référencement sur Google",
+            "DV (Domain Validation)",
+            "EV (Extended Validation)",
+            "Aucun document supplémentaire n'est requis",
+            "Compatibilité avec 99,3 % des navigateurs"
+
+        ]
+    },{
+        "name":"host s silver",
+        "description":"Protect all subdomains",
+        "prix":"64 500 FCFA/an",
+        "attribute": [
+            "Sécurise 1 site web et tous ses sous-domaines",
+            "Cryptage 2048 bits",
+            "Améliore le référencement sur Google",
+            "DV (Domain Validation)",
+            "Usage Professionnel",
+            "Compatibilité avec 99,3 % des navigateurs",
+            "Aucun document supplémentaire n'est requis"
+        ]
+    },{
+        "name":"host s Gold",
+        "description":"Protect all subdomains",
+        "prix":"115 000 FCFA/an",
+        "attribute": [
+            "Sécurise 1 site web et tous ses sous-domaines",
+            "Cryptage 2048 bits",
+            "Améliore le référencement sur Google",
+            "DV (Domain Validation)",
+            "Usage Professionnel",
+            "Compatibilité avec 99,3 % des navigateurs",
+            "Aucun document supplémentaire n'est requis",
+            "Validation de la propriété du domaine",
+            "Assurance jusqu'à 1 000 000"
+        ]
+
+    }
+]
