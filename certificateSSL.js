@@ -4,7 +4,7 @@ async function genereForfaitSSL() {
     forfait= await reponse.json()
     for (let i = 0; i < forfait.length; i++) {
         const element = forfait[i]//.atribute.slice(0,3);
-        const forfaitname =document.createElement('h5')
+        const forfaitname =document.createElement('h2')
            forfaitname.innerText=element.name
         const forfaitContent= document.createElement('p')
             forfaitContent.innerText=element.description
@@ -20,6 +20,7 @@ async function genereForfaitSSL() {
             forfaitHead.style.fontWeight="500"
             forfaitHead.style.borderRadius="10px 10px 0px 0px"
             forfaitHead.style.border="1px solid gray"
+            forfaitHead.classList.add("forfaitHead")
             
     
         const divForfait = document.createElement('div')
@@ -51,6 +52,9 @@ async function genereForfaitSSL() {
     
 
 });
+        forfaitAtributeList.style.flexGrow = "1"; 
+        
+
         
         const forfaitButtom=document.createElement("div")
         forfaitButtom.appendChild(forfaitAtributeList)
@@ -61,6 +65,15 @@ async function genereForfaitSSL() {
             divForfait.appendChild(forfaitHead)
             divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
             divForfait.style.borderRadius="10px"
+         // Ajuste la hauteur selon tes besoins
+            divForfait.style.display = "flex";
+            divForfait.style.flexDirection = "column";
+            divForfait.style.display = "flex";
+            divForfait.style.flexDirection = "column";
+            divForfait.style.alignItems = "stretch";
+
+
+
             
 
 

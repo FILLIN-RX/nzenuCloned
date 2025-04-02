@@ -265,6 +265,7 @@ main{
   text-align: center;
 
 }
+
 .forfait li:nth-child(odd) {
   background-color: #d1d5db;
   display: flex;
@@ -467,6 +468,12 @@ nav {
   #sectionRealiser img{
     display: none;
   }
+  .forfaitHead{
+    padding: 5%;
+  }
+  #seConnecter{
+    padding: 0% 1%;
+  }
 }
 
 /* Tablette */
@@ -516,6 +523,12 @@ nav {
   #sectionRealiser img{
     display: none;
   }
+  .forfaitHead{
+    padding: 10%;
+  }
+  #seConnecter{
+    padding: 1% 5%;
+  }
 }
 
 /* Ordinateur */
@@ -563,6 +576,12 @@ nav {
   .seulement p{
     padding: 2% 10%;
   }
+  .forfaitHead{
+    padding: 25%;
+  }
+}
+#seConnecter{
+  padding: 2% 1%;
 }
 
 

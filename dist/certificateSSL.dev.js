@@ -21,7 +21,7 @@ function genereForfaitSSL() {
           _loop = function _loop(i) {
             var element = forfait[i]; //.atribute.slice(0,3);
 
-            var forfaitname = document.createElement('h5');
+            var forfaitname = document.createElement('h2');
             forfaitname.innerText = element.name;
             var forfaitContent = document.createElement('p');
             forfaitContent.innerText = element.description;
@@ -36,6 +36,7 @@ function genereForfaitSSL() {
             forfaitHead.style.fontWeight = "500";
             forfaitHead.style.borderRadius = "10px 10px 0px 0px";
             forfaitHead.style.border = "1px solid gray";
+            forfaitHead.classList.add("forfaitHead");
             var divForfait = document.createElement('div');
             divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); // Créer la liste des attributs
 
@@ -56,6 +57,7 @@ function genereForfaitSSL() {
               li.innerHTML = "\n                <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" role=\"img\" \n                class=\"icon w-6 h-6 text-primary-900\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\">\n                    <path fill=\"currentColor\" d=\"m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z\"></path>\n                </svg> ".concat(attr);
               forfaitAtributeList.appendChild(li);
             });
+            forfaitAtributeList.style.flexGrow = "1";
             var forfaitButtom = document.createElement("div");
             forfaitButtom.appendChild(forfaitAtributeList);
             forfaitButtom.appendChild(button);
@@ -64,7 +66,13 @@ function genereForfaitSSL() {
             divForfait.appendChild(forfaitHead);
             divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
 
-            divForfait.style.borderRadius = "10px";
+            divForfait.style.borderRadius = "10px"; // Ajuste la hauteur selon tes besoins
+
+            divForfait.style.display = "flex";
+            divForfait.style.flexDirection = "column";
+            divForfait.style.display = "flex";
+            divForfait.style.flexDirection = "column";
+            divForfait.style.alignItems = "stretch";
             var divsectionForfait = document.querySelector('#forfait');
             divsectionForfait.appendChild(divForfait);
             var sectionForfait = document.querySelector('.forfait');

@@ -1,0 +1,57 @@
+#registere {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 40rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#registere form {
+    text-align: start;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#registere form input {
+    min-height: 30px;
+    width: 100%;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    margin: 15px 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+#registere form input::placeholder {
+    color: gray;
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+#registere button {
+    color: white;
+    background-color: #007bff;
+    width: 100%;
+    border: none;
+    min-height: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#registere button:hover {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid  #007bff ;
+}
