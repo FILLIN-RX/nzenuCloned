@@ -56,7 +56,7 @@
 #PourquoiNousChoisirMigration .row{
     display: flex;
     justify-content: center;
-}
+}      
 /* Mobile */
 @media (max-width: 576px) {
   body {

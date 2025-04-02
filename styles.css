@@ -384,7 +384,36 @@ nav {
   display: flex;
   justify-content: center;
 }
+.AdvantageEmailPro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #d1d5db;
 
+}
+.AdvantageEmailPro .row{
+  display: flex;
+  justify-content: center;
+}
+.AdvantageEmailPro .row .col-sm-12{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  background-color: #fff;
+  gap: 5px;
+  margin: 5px;
+
+}
+.AdvantageEmailPro span{
+  color: blue;
+  font-weight: bold;
+}
+.seulement p{
+  text-align: left;
+  background-color: #d1d5db;
+}
 /* Mobile */
 @media (max-width: 576px) {
   #firstfootercontainer{
@@ -429,6 +458,15 @@ nav {
     padding: 0% 1%;
 
   }
+  .AdvantageEmailPro{
+    padding: 0% 1%;
+  }
+  .seulement p{
+    padding: 0% 1%;
+  }
+  #sectionRealiser img{
+    display: none;
+  }
 }
 
 /* Tablette */
@@ -468,6 +506,15 @@ nav {
   #sectionRealiser{
     padding: 1% 5%;
 
+  }
+  .AdvantageEmailPro{
+    padding: 1% 5%;
+  }
+  .seulement p{
+    padding: 1% 5%;
+  }
+  #sectionRealiser img{
+    display: none;
   }
 }
 
@@ -509,6 +556,12 @@ nav {
   #sectionRealiser{
     padding: 2% 10%;
 
+  }
+  .AdvantageEmailPro{
+    padding: 2% 10%;
+  }
+  .seulement p{
+    padding: 2% 10%;
   }
 }
 

@@ -87,8 +87,8 @@ tr:nth-child(odd) {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right ;
-  background-color: rgb(19, 3, 39);
-  min-height: 30rem;
+  background-color: #0b1120; 
+  min-height: 20rem;
   font-weight: bold;
   color: white;
 }
