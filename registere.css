@@ -167,7 +167,33 @@ form input::placeholder{
     justify-content:center;
 }
 .to-be-hidden-nav img{
-    width:20px
+    
+    height: auto;
+    flex-shrink: 1; /* Allows the image to shrink */
+    min-width: 0; /* Prevents content from forcing a minimum size */
+}
+.col2 .row{
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if necessary */
+    align-items: center;
+    
+}
+.to-be-hidden-nav .col-2{
+    flex: 0 1 auto; /* Allows shrinking */
+    min-width: 0; /* Prevents forced size */
+
+}
+.to-be-hidden-nav{
+    display: flex; /* Ensures flex behavior */
+    align-items: center; /* Aligns content properly */
+    flex-shrink: 2; /* Increase shrinking priority */
+    min-width: 0; /* Prevent content from forcing a minimum size */
+
+}
+.to-be-hidden-nav a {
+    white-space: nowrap; /* Prevents wrapping but allows shrinking */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." when text is cut */
 }
 
 
