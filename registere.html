@@ -9,9 +9,42 @@
     <link rel="stylesheet" href="registere.css">
 </head>
 <body>
+    <div id="nav">
+        <ul class="nav">
+            
+            
+            <li><div class="navlink"> Nom de domaine <img src="images/5112d7f3-0297-4903-b86a-ffc9098e38b1.svg" alt=""> </div>
+                <div class="linkContent">
+                    <ul>
+                        <li><a href="Enregistrerdomaine.html"> <img src="images/5be53413-e290-4938-886e-eaa5d83b7ab0.svg" alt=""> Enregistrer un nom de domaine</a></li>
+                        <li><a href="Transfererdomaine.html">Transferer un nom de domaine</a></li>
+                        <li n><a href="Recherchedomaine.html">Recherche Whois</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><div class="navlink">Hebergement Web <img src="images/5112d7f3-0297-4903-b86a-ffc9098e38b1.svg" alt=""></div>
+                <div class="linkContent">
+                    <ul>
+                        <li><a href="Recherchedomaine.html">Hebergement mutualiser</a></li>
+                        <li><a href="Recherchedomaine.html">Hebergement Wordpress</a></li>
+                        <li><a href="Recherchedomaine.html">Hebergement Prestashop</a></li>
+                        <li><a href="migration.html">migration d'herbergement</a></li>
+                    </ul>
+                    
+                </div>
+                
+            </li>
+            <li><a href="email.html">email</a></li>
+            <li><a href="Certificate.html">Certificate  ssl</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+</div>
+<main>
+
+
     <section id="seConnecter">
         <div class="container">
-            <div class="col">
+            <div class="col-lg-6 col-md-12 col-sm-12 seConnecter">
                 <h4>Se connecter et gérer son plan d'hébergement</h4>
                 <form action="">
                     <div class="input-group">
@@ -21,6 +54,9 @@
                     <div class="input-group">
                         <label for="password">Votre mot de passe</label>
                         <input type="password" placeholder="Entrez votre mot de passe" id="password">
+                        <div class="motDePasseOublier">
+                            <a href="">Mot de passe oublier?</a>
+                        </div>
                     </div>
                     <button type="submit">Se connecter</button>
                 </form>
@@ -28,6 +64,9 @@
                 <div class="register-link">
                     Vous n'avez pas de compte? <a href="">Créer un compte</a>.
                 </div>
+            </div>
+            <div class="col-lg-6 col-image">
+                <img src="images/image (5).png" alt="">
             </div>
         </div>
     </section>
@@ -156,5 +195,7 @@
         </div>
     
     </footer> 
+</main>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -21,10 +21,7 @@ p {
 .container {
   margin: 0;
 }
-nav{
-  margin-top: 0;
-  padding: 0 10%;
-}
+
 
 /* Header */
 .header {
@@ -35,30 +32,7 @@ nav{
 }
 
 /* Navigation */
-.nav {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  background-color: #fff;
-  position: fixed;
-  width: 100%;
-  padding: 0.5em 0;
-  margin-top: 0;
-  
-}
 
-.nav a {
-  text-decoration: none;
-  padding: 0.5em 1em;
-}
-
-.nav a:hover {
-  background-color: #555;
-}
-
-.nav li ul {
-  text-decoration: none;
-}
 main{
   padding-top: 145px;
 }
