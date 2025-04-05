@@ -25,7 +25,6 @@ async function genereForfaitSSL() {
     
         const divForfait = document.createElement('div')
         divForfait.classList.add("col-sm-12", "col-md-12", "col-lg-3"); 
-        // Créer la liste des attributs
         const forfaitAtributeList = document.createElement('ul');
         forfaitAtributeList.style.width="100"
         forfaitAtributeList.style.listStylePosition="inside"
@@ -63,9 +62,9 @@ async function genereForfaitSSL() {
         forfaitButtom.style.border="1px solid gray"
             
             divForfait.appendChild(forfaitHead)
-            divForfait.appendChild(forfaitButtom); // Ajout de la liste des attributs
+            divForfait.appendChild(forfaitButtom);
             divForfait.style.borderRadius="10px"
-         // Ajuste la hauteur selon tes besoins
+
             divForfait.style.display = "flex";
             divForfait.style.flexDirection = "column";
             divForfait.style.display = "flex";
