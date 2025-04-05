@@ -140,14 +140,14 @@ function genereForfait() {
 
                 isExpanded = false;
               }
-            }; // Ajouter les 3 attributs de base
+            }; 
 
 
             initialAttributes.forEach(function (attr) {
               var li = document.createElement('li');
               li.innerHTML = "\n        <svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" role=\"img\" \n        class=\"icon w-6 h-6 text-primary-900\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\">\n            <path fill=\"currentColor\" d=\"m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z\"></path>\n        </svg> ".concat(attr);
               forfaitAtributeList.appendChild(li);
-            }); // Gérer l'affichage des attributs au survol du forfait
+            }); 
 
             button.addEventListener('mouseenter', showAllAttributes); // S'assurer que les attributs restent affichés tant que la souris est dessus
 
@@ -252,8 +252,8 @@ function person() {
             slideContainer.innerHTML = ""; // Effacer l'ancien affichage
 
             for (var i = 0; i < 2; i++) {
-              // Toujours afficher 2 cartes
-              var personIndex = (index + i) % persons.length; // Permet une boucle infinie
+              
+              var personIndex = (index + i) % persons.length; 
 
               var elementperson = persons[personIndex];
               var personName = document.createElement('h5');
@@ -271,14 +271,14 @@ function person() {
               personImage.style.width = "80px";
               personImage.style.borderRadius = "50%";
               var divPerson = document.createElement('div');
-              divPerson.classList.add("carousel-card"); // Ajoute une classe spécifique
+              divPerson.classList.add("carousel-card"); 
 
               divPerson.appendChild(personImage);
               divPerson.appendChild(personName);
               divPerson.appendChild(personDescription);
               divPerson.appendChild(personContent);
               divPerson.style.margin = "10px";
-              divPerson.style.flexShrink = "0"; // Empêcher le rétrécissement des slides
+              divPerson.style.flexShrink = "0"; 
 
               slideContainer.appendChild(divPerson);
             }
