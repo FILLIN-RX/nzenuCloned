@@ -1,3 +1,106 @@
+
+
+
+
+
+
+nav{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  color: #2267c2;
+}
+nav a{
+  color: black;
+  
+}
+.nav li{
+  font-weight: bold;
+
+}
+nav img{
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color:white;
+  width: 100%;
+  padding: 0.5em 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    color: rgb(19, 17, 17);
+    z-index: 1000;
+    list-style-type: none;
+    margin: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+.nav a:hover {
+  
+}
+.nav li .linkContent{
+  cursor: pointer;
+  transition: max-height 0.3s ease-in-out;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0;
+  text-align: left;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 100;
+  
+
+}
+.con{
+  background-color: #2267c2;
+  color: white;
+  font-weight:500;
+  padding: 0;
+}
+.con .col-3 img{
+  width:80px;
+  
+}
+.linkContent li{
+  list-style-type: none;
+  text-align: left;
+  margin: 5px;
+  
+}
+.linkContent li a{
+  font-weight: 400;
+}
+.navlink{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+main{
+  padding-top: 110px;
+}
+
+
+
+
+
+
 #domainetable {
   display: flex;
   flex-direction: column;
@@ -74,7 +177,7 @@ tr:nth-child(odd) {
   justify-content: center;
 }
 
-.optionInclus .row .col-lg-4 {
+.optionInclus .row .col-lg-3 {
   background-color: #D1D5DB;
   margin: 5px ;
   padding: 20px;
@@ -316,6 +419,22 @@ tr:nth-child(odd) {
   #domain{
   padding: 0% 1%;
   }
+  .col-image{
+    display: none;
+}
+.nav{
+    padding: 0% 1%;
+}
+.con{
+    padding: 0;
+}
+.to-be-hidden-nav{
+    display: none;
+
+}
+.nav{
+  display:none;
+}
 }
 
 /* Tablette */
@@ -360,6 +479,19 @@ tr:nth-child(odd) {
   #domain{
   padding: 1% 5%;
   }
+  .col-image{
+    display: none;
+}
+.nav{
+    padding: 0% 5%;
+}
+.con{
+    padding: 0% 0%;
+}
+.con .row .col-lg-5{
+  width: 180%;
+}
+
 }
 
 /* Ordinateur */
@@ -408,6 +540,13 @@ tr:nth-child(odd) {
   #domain{
   padding: 2% 10%;
   }
+  .nav{
+    padding: 0% 10%;
+}
+.con{
+    padding: 0% 16%;
+}
+
 
 }
 
