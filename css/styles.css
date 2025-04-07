@@ -400,6 +400,7 @@ main{
 }
 .supportClient{
   display: flex;
+  flex-wrap: wrap;
 }
 #supportClientRow2{
   display: flex;

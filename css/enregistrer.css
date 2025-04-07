@@ -1,7 +1,9 @@
 
 
 
-
+body{
+  font-family: 'Roboto', sans-serif;
+}
 
 
 nav{
@@ -434,6 +436,9 @@ tr:nth-child(odd) {
 }
 .nav{
   display:none;
+}
+#sectionRealiser .col-lg-4{
+  display: none;
 }
 }
 
