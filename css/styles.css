@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /* Base styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
 }
-ma
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0.5em 0;
@@ -74,10 +74,15 @@ main{
   font-weight: bolder;
   font-size: 20px;
 }
+.container1 #row1-col1-row{
+  text-align: left;
+  display:flex;
+  color:red
+}
 
 .row1 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .container1 .row .col-md-12 .row .col-md-12 {
@@ -109,11 +114,15 @@ main{
 .vitessePerfomance {
   background: red;
 }
-
+.vitessePerfomance .row1{
+  text-align: center;
+  justify-content: center;
+}
 .vitessePerfomance {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 .vitessePerfomance .row2 {
   display: flex;
@@ -256,6 +265,10 @@ main{
   list-style-type: none;
   width: 100%;
 }
+.forfait h4{
+  font-weight: 800;
+  font-size: 30px;
+}
 
 .supportClient {
   background-color: #060642;
@@ -342,7 +355,7 @@ main{
 }
 
 #ceQueLesGens {
-  background-image: url(images/col-bg-two.webp);
+  background-image: url(../images/col-bg-two.webp);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -385,6 +398,14 @@ main{
   text-align: left;
   background-color: #d1d5db;
 }
+.supportClient{
+  display: flex;
+}
+#supportClientRow2{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* Mobile */
 @media (max-width: 576px) {
   #firstfootercontainer{
