@@ -1,7 +1,13 @@
 #sectionRealiser img{
     position: absolute;
     right: 500px;
-    top: 50px;
+    top:190px;
     width: 400px; /* Ajuste selon besoin */
     
+}
+.transformer #row3{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }

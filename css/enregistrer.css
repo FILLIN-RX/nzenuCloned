@@ -46,19 +46,22 @@ nav img{
   padding: 0.5em 1em;
 }
 
-.nav a:hover {
+.nav a:active {
+  color: #2267c2;
   
 }
 .nav li .linkContent{
   cursor: pointer;
   transition: max-height 0.3s ease-in-out;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 0;
   text-align: left;
   right: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-weight: 100;
+  display: none;
+
   
 
 }
@@ -67,6 +70,8 @@ nav img{
   color: white;
   font-weight:500;
   padding: 0;
+  display: flex;
+    justify-content: space-between;
 }
 .con .col-3 img{
   width:80px;
@@ -202,9 +207,14 @@ tr:nth-child(odd) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .research form{
   width: 100%;
+}
+.research h4{
+  font-weight: bolder;
 }
 
 .research button{
@@ -495,6 +505,9 @@ tr:nth-child(odd) {
 }
 .con .row .col-lg-5{
   width: 180%;
+}
+#sectionRealiser .col-lg-4{
+  display: none;
 }
 
 }

@@ -61,6 +61,8 @@ nav{
     color: white;
     font-weight:500;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
   }
   .con .col-3 img{
     width:80px;
@@ -89,7 +91,7 @@ nav{
 
 
 main{
-    padding-top: 110px;
+    padding-top: 120px;
 }
 #seConnecter{
     padding: 3% 3% 5% 1%;
@@ -109,7 +111,7 @@ main{
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     text-align: center;
 }
 #seConnecter form{
@@ -126,6 +128,7 @@ main{
 .motDePasseOublier{
     text-align: right;
     margin: 0 0 5px 0;
+    width: 100%;
 }
 
 form input{

@@ -1,0 +1,14 @@
+
+
+
+.seConnecter{
+    padding: 2%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.motDePasseOublier{
+    text-align: left;
+    margin: 0 0 5px 0;
+}

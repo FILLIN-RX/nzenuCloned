@@ -5,58 +5,10 @@
 
 
 main{
-    padding-top: 200px;
+    padding-top: 110px;
 }
 
-nav{
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    color: #fff;
-  }
-  nav a{
-    color: #fff;
-  }
-  nav img{
-    color: #fff;
-  }
-  
-  /* Navigation */
-  .nav {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: #4b4aa3;
-    width: 100%;
-    padding: 0.5em 0;
-  
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      color: rgb(19, 17, 17);
-      z-index: 1000;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    padding: 0.5em 1em;
-  }
-  
-  .nav a:hover {
-    text-decoration: underline;
-  }
-  .nav li .linkContent{
-    cursor: pointer;
-    transition: max-height 0.3s ease-in-out;
-    background-color: #e7e4e4;
-    border-radius: 20px;
-    list-style: none;
-  
-  }
-  .navlink{
-    cursor: pointer;
-  }
+
   .supportClient{
     background-color:  #060642;
     color: #fff;

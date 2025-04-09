@@ -5,55 +5,7 @@ main{
     padding-top: 200px;
 }
 
-nav{
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    color: #fff;
-  }
-  nav a{
-    color: #fff;
-  }
-  nav img{
-    color: #fff;
-  }
-  
-  /* Navigation */
-  .nav {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: #4b4aa3;
-    width: 100%;
-    padding: 0.5em 0;
-  
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      color: rgb(19, 17, 17);
-      z-index: 1000;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    padding: 0.5em 1em;
-  }
-  
-  .nav a:hover {
-    text-decoration: underline;
-  }
-  .nav li .linkContent{
-    cursor: pointer;
-    transition: max-height 0.3s ease-in-out;
-    background-color: #e7e4e4;
-    border-radius: 20px;
-    list-style: none;
-  
-  }
-  .navlink{
-    cursor: pointer;
-  }
+
   .supportClient{
     background-color:  #060642;
     color: #fff;
@@ -65,7 +17,6 @@ nav{
   }
 
 .optionInclus {
-    margin: 10%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -101,7 +52,6 @@ nav{
 #forfait .col-md-12 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 #forfait .col-md-12 li {
   min-height: 40px;
@@ -115,6 +65,13 @@ nav{
   align-items: center;
   text-align: center;
 
+}
+.forfait #first{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .forfait h3{
   font-weight: bold;

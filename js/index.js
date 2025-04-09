@@ -60,12 +60,12 @@ document.querySelectorAll('.navlink').forEach((button,index)=>{
         console.log('link clicked')
         let contentnav = document.querySelectorAll('.linkContent')[index];
 
-        if (contentnav.style.display === "block") {
-            contentnav.style.display ='none'
+        if (contentnav.style.display === "none") {
+            contentnav.style.display ='block'
             console.log('found')
             
         }else{
-            contentnav.style.display = "block";
+            contentnav.style.display = "none";
             console.log('find')
         }
     })
